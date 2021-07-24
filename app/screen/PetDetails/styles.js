@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   container: {
-    padding: 10,
     backgroundColor: colors.light,
   },
   containerImage: {
@@ -24,6 +23,9 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     padding: 5,
+  },
+  scrollview: {
+    flexGrow: 1,
   },
   textRowSmall: {
     width: "25%",

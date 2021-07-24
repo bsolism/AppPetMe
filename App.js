@@ -1,6 +1,12 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { StyleSheet } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+} from "react-native";
 import DrawerNavigator from "./app/Navigation/DrawerNavigator";
 import { navigationRef } from "./app/Navigation/rootNavigator";
 
