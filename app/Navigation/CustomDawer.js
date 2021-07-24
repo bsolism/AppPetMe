@@ -1,11 +1,10 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import Home from "../../screen/Home";
-import Profile from "../../screen/Profile";
+import AppText from "../components/AppTex";
 
 function CustomDrawer(props) {
   return (
@@ -22,8 +21,8 @@ function CustomDrawer(props) {
           }}
         >
           <View>
-            <Text>Bernardo Solis</Text>
-            <Text>bsolis@email.com</Text>
+            <AppText>Bernardo Solis</AppText>
+            <AppText>bsolis@email.com</AppText>
           </View>
           <Image
             source={{
@@ -44,7 +43,7 @@ function CustomDrawer(props) {
           padding: 20,
         }}
       >
-        <Text>Log Out</Text>
+        <AppText>Log Out</AppText>
       </TouchableOpacity>
     </View>
   );

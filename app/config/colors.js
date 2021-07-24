@@ -8,4 +8,5 @@ export default {
   danger: "#ff5252",
   yellow: "#ffe66d",
   dark: "#0c0c0c",
+  light_grey: "#bebebe",
 };

@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  View,
-  Image,
-  Text,
-  Touchable,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { View, Image } from "react-native";
 import Button from "../Button";
+import AppText from "../AppTex";
 import Carousel from "../Carousel";
 
 import styles from "./styles";
@@ -18,24 +13,40 @@ function Card(props) {
       <View style={styles.headerContainer}>
         {image && <Image style={styles.image} source={image} />}
         <View style={styles.detailHeader}>
-          <Text style={styles.title}>{title}</Text>
+          <AppText style={styles.title}>{title}</AppText>
         </View>
       </View>
 
       <View>
-        <Text style={styles.title}>{name}</Text>
-        <Carousel photo={photo} />
+        <AppText style={styles.title}>{name}</AppText>
+        <Carousel photo={photo} padding={40} />
         {/* <Image style={styles.photo} source={photo} /> */}
       </View>
 
       <View style={styles.description}>
-        <Text style={styles.titleDescription}>{description}</Text>
+        <AppText style={styles.titleDescription}>{description}</AppText>
       </View>
       <View style={styles.line}></View>
       <View style={styles.footer}>
-        <Button title="Información" style={styles.button} onPress={onPress} />
-        <Button title="Apadrinar Refugio" style={styles.button} />
-        <Button title="Adoptar" style={styles.button} />
+        <Button
+          title="Información"
+          style={styles.button}
+          onPress={onPress}
+          color="white"
+          colorText="grey"
+        />
+        <Button
+          title="Apoyar Refugio"
+          style={styles.button}
+          color="white"
+          colorText="grey"
+        />
+        <Button
+          title="Adoptar"
+          style={styles.button}
+          color="white"
+          colorText="grey"
+        />
       </View>
     </View>
   );

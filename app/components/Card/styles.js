@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: "flex-end",
     justifyContent: "center",
-    marginRight: 2,
+    margin: 2,
   },
   card: {
     borderRadius: 15,
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexDirection: "row",
-    alignItems: "flex-end",
-    justifyContent: "flex-end",
+    alignItems: "center",
+    justifyContent: "center",
   },
   headerContainer: {
     flexDirection: "row",

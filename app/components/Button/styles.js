@@ -7,11 +7,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
-    marginVertical: 10,
+    marginVertical: 5,
     borderBottomColor: colors.black,
   },
   text: {
-    color: colors.grey,
     fontSize: 12,
     textTransform: "uppercase",
     fontWeight: "bold",

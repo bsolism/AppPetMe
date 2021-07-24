@@ -2,9 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
 import DrawerNavigator from "./app/Navigation/DrawerNavigator";
-import Carousel from "./app/components/Carousel";
 import { navigationRef } from "./app/Navigation/rootNavigator";
-import NavigationTheme from "./app/Navigation/NavigationTheme";
 
 export default function App() {
   return (

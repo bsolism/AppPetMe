@@ -1,7 +1,7 @@
 const pets = [
   {
     id: 1,
-    name: "Pet Little Dog1",
+    name: "Pupy",
     category: "Little",
     description: "Perro abandonado pero recuperado y listo para adoptar",
     photo: [
@@ -18,8 +18,26 @@ const pets = [
         image: require("../../assets/littleDog1.2.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: false,
   },
   {
     id: 2,
@@ -32,14 +50,32 @@ const pets = [
         image: require("../../assets/mediumDog1.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 3,
-    name: "Pet Big Dog1",
+    name: "Black",
     category: "Big",
-    description: "Perro abandonado pero recuperado y listo para adoptar",
+    description: "Le gusta jugar y rompe todo, y solo pasa mordiendo a Jafeth",
     photo: [
       {
         id: 1,
@@ -50,8 +86,26 @@ const pets = [
         image: require("../../assets/bigDog1.1.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "4 meses",
+    weight: "15 kg",
+    height: "80 cm",
+    sex: "Macho",
+    color: "Negro",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 4,
@@ -64,8 +118,26 @@ const pets = [
         image: require("../../assets/littleDog2.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 5,
@@ -78,8 +150,26 @@ const pets = [
         image: require("../../assets/mediumDog2.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 6,
@@ -92,8 +182,26 @@ const pets = [
         image: require("../../assets/bigDog2.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 7,
@@ -106,8 +214,26 @@ const pets = [
         image: require("../../assets/littleDog3.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 8,
@@ -120,8 +246,26 @@ const pets = [
         image: require("../../assets/mediumDog3.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 9,
@@ -134,8 +278,26 @@ const pets = [
         image: require("../../assets/bigDog3.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 10,
@@ -148,8 +310,26 @@ const pets = [
         image: require("../../assets/littleDog4.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 11,
@@ -162,8 +342,26 @@ const pets = [
         image: require("../../assets/mediumDog4.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
   {
     id: 12,
@@ -176,8 +374,26 @@ const pets = [
         image: require("../../assets/bigDog4.jpg"),
       },
     ],
-    title: "Guarderia SPS",
+    refuge: {
+      id: 1,
+      name: "Casa de Rescate Animal",
+      city: "San Pedro Sula",
+      address: "Barrio el Centro",
+    },
     image: require("../../assets/img.png"),
+    old: "2 años",
+    weight: "10 kg",
+    height: "80 cm",
+    sex: "Hembra",
+    color: "Beige",
+    clinicHistory:
+      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
+      "encuentra en ya recuperado",
+    lifeHistory:
+      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
+      "le dió seguimiento para su recuperación, ahora está feliz con una" +
+      "segunda oportunidad de vida",
+    isAdoptable: true,
   },
 ];
 

@@ -1,21 +1,13 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  useWindowDimensions,
-  TouchableOpacityBase,
-} from "react-native";
-import colors from "../../config/colors";
+import { View, StyleSheet, Image, useWindowDimensions } from "react-native";
 
-function CarouselItem({ item }) {
+function CarouselItem({ item, padding }) {
   const { width } = useWindowDimensions();
   return (
-    <View style={[styles.container, width]}>
+    <View style={[styles.container, { width: width - padding }]}>
       <Image
         source={item.image}
-        style={[styles.image, { width: width - 40 }]}
+        style={[styles.image, { width: width - padding }]}
       />
     </View>
   );

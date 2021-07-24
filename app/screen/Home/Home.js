@@ -4,8 +4,6 @@ import Screen from "../../components/Screen";
 import Card from "../../components/Card";
 import routes from "../../Navigation/routes";
 
-import pets from "../../models/PetModels";
-
 import styles from "./styles";
 
 function Home({ route, navigation }) {
@@ -22,7 +20,7 @@ function Home({ route, navigation }) {
               name={params[item].name}
               description={params[item].description}
               photo={params[item].photo}
-              title={params[item].title}
+              title={params[item].refuge.name}
               image={params[item].image}
               onPress={() =>
                 navigation.navigate(routes.PET_DETAILS, params[item])

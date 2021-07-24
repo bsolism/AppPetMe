@@ -1,7 +1,7 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import Home from "../../screen/Home";
-import pets from "../../models/PetModels";
+import Home from "../screen/Home";
+import pets from "../models/PetModels";
 
 const Tab = createMaterialTopTabNavigator();
 

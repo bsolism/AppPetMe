@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import AppText from "../../components/AppTex";
 
 import styles from "./styles";
 
@@ -7,7 +8,7 @@ function Profile(props) {
   const { name } = props.route;
   return (
     <View style={styles.container}>
-      <Text>{name}</Text>
+      <AppText>{name}</AppText>
     </View>
   );
 }
