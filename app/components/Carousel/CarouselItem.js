@@ -1,13 +1,13 @@
 import React from "react";
 import { View, StyleSheet, Image, useWindowDimensions } from "react-native";
 
-function CarouselItem({ item, padding }) {
+function CarouselItem({ item, padding, height }) {
   const { width } = useWindowDimensions();
   return (
     <View style={[styles.container, { width: width - padding }]}>
       <Image
         source={item.image}
-        style={[styles.image, { width: width - padding }]}
+        style={[styles.image, { width: width - padding, height: height - 50 }]}
       />
     </View>
   );

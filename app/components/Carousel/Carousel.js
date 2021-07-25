@@ -5,7 +5,7 @@ import CarouselItem from "./CarouselItem";
 import styles from "./styles";
 
 function Carousel(props) {
-  const { photo, style, padding } = props;
+  const { photo, style, padding, height } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
@@ -21,7 +21,11 @@ function Carousel(props) {
         <FlatList
           data={Object.keys(photo)}
           renderItem={({ item }) => (
-            <CarouselItem item={photo[item]} padding={padding} />
+            <CarouselItem
+              item={photo[item]}
+              padding={padding}
+              height={height}
+            />
           )}
           horizontal
           showsHorizontalScrollIndicator

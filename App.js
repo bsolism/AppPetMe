@@ -1,28 +1,12 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import {
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-} from "react-native";
-import DrawerNavigator from "./app/Navigation/DrawerNavigator";
 import { navigationRef } from "./app/Navigation/rootNavigator";
+import AppNavigator from "./app/Navigation/AppNavigator";
 
 export default function App() {
   return (
     <NavigationContainer ref={navigationRef}>
-      <DrawerNavigator />
+      <AppNavigator />
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

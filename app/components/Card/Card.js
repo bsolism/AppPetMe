@@ -19,7 +19,7 @@ function Card(props) {
 
       <View>
         <AppText style={styles.title}>{name}</AppText>
-        <Carousel photo={photo} padding={40} />
+        <Carousel photo={photo} padding={40} height={300} />
         {/* <Image style={styles.photo} source={photo} /> */}
       </View>
 

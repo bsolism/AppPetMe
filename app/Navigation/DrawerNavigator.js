@@ -2,7 +2,8 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomDrawer from "./CustomDawer";
 import Profile from "../screen/Profile";
-import { MainStackNavigator } from "./StackNavigator";
+import TabNavigator from "./TabNavigator";
+import colors from "../config/colors";
 
 const Drawer = createDrawerNavigator();
 
@@ -12,7 +13,7 @@ function DrawerNavigator(props) {
       screenOptions={{
         headerShown: true,
         headerStyle: {
-          backgroundColor: "#9AC4F8",
+          backgroundColor: colors.blue,
           elevation: 10,
           shadowOpacity: 0,
         },
@@ -20,7 +21,7 @@ function DrawerNavigator(props) {
       }}
       drawerContent={(props) => <CustomDrawer {...props} />}
     >
-      <Drawer.Screen component={MainStackNavigator} name="Inicio" />
+      <Drawer.Screen component={TabNavigator} name="Tab" />
       <Drawer.Screen component={Profile} name="Profile" />
     </Drawer.Navigator>
   );

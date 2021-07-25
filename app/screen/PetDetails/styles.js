@@ -1,20 +1,31 @@
 import { StyleSheet, useWindowDimensions } from "react-native";
 import colors from "../../config/colors";
 
-const { width } = useWindowDimensions;
+const { height } = useWindowDimensions;
 
 const styles = StyleSheet.create({
   Button: {
-    width: "100%",
-    backgroundColor: colors.primary,
-    color: colors.white,
+    width: "40%",
+    backgroundColor: "transparent",
+    borderWidth: 0.5,
+    borderColor: colors.black,
+    borderRadius: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
   },
   container: {
     backgroundColor: colors.light,
   },
   containerImage: {
     width: "100%",
-    height: 300,
+    height: "40%",
+    padding: 10,
+  },
+  footer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
   },
   profilePet: {
     backgroundColor: colors.white,
@@ -25,7 +36,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   scrollview: {
-    flexGrow: 1,
+    height: "60%",
   },
   textRowSmall: {
     width: "25%",

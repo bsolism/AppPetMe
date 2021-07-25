@@ -9,4 +9,5 @@ export default {
   yellow: "#ffe66d",
   dark: "#0c0c0c",
   light_grey: "#bebebe",
+  blue: "#9AC4F8",
 };

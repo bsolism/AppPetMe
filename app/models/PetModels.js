@@ -79,18 +79,22 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/bigDog1.jpg"),
+        image: require("../../assets/black1.jpg"),
       },
       {
         id: 2,
-        image: require("../../assets/bigDog1.1.jpg"),
+        image: require("../../assets/black1.1.jpg"),
+      },
+      {
+        id: 3,
+        image: require("../../assets/black1.2.jpg"),
       },
     ],
     refuge: {
       id: 1,
-      name: "Casa de Rescate Animal",
-      city: "San Pedro Sula",
-      address: "Barrio el Centro",
+      name: "Casa Solis Cantarero",
+      city: "Villanueva",
+      address: "Res. Guacamaya",
     },
     image: require("../../assets/img.png"),
     old: "4 meses",
@@ -98,13 +102,8 @@ const pets = [
     height: "80 cm",
     sex: "Macho",
     color: "Negro",
-    clinicHistory:
-      "El cachorro se le practicó una cirugia hace tres meses ahora se" +
-      "encuentra en ya recuperado",
-    lifeHistory:
-      "El cachorro fue rescatado de las calles, se encontraba enfermo, se" +
-      "le dió seguimiento para su recuperación, ahora está feliz con una" +
-      "segunda oportunidad de vida",
+    clinicHistory: "Sin Enfermedad detectada",
+    lifeHistory: "Tiene una vida Saludable",
     isAdoptable: true,
   },
   {
