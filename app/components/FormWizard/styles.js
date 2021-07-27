@@ -1,23 +1,23 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
+  container: {},
+  footer: {
+    marginVertical: 50,
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  dotView: {
     flexDirection: "row",
     justifyContent: "center",
-  },
-  containerCarousel: {
-    flex: 1,
-    justifyContent: "center",
     alignItems: "center",
-    height: 250,
   },
-  image: {
-    resizeMode: "contain",
+  button: {
+    width: "40%",
+    margin: 10,
+    height: 40,
+  },
+  row: {
+    marginHorizontal: 20,
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
 

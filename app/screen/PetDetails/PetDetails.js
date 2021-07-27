@@ -6,6 +6,7 @@ import AppText from "../../components/AppTex";
 import colors from "../../config/colors";
 import Screen from "../../components/Screen";
 import Button from "../../components/Button";
+import routes from "../../Navigation/routes";
 
 import styles from "./styles";
 
@@ -16,7 +17,7 @@ function PetDetails({ route, navigation }) {
   return (
     <Screen style={styles.container}>
       <View style={styles.containerImage}>
-        <Carousel photo={pet.photo} padding={5} height={height * 0.4} />
+        <Carousel photo={pet.photo} padding={20} height={height * 0.4} />
       </View>
       <ScrollView style={styles.scrollview}>
         <TitleSeparator title="Perfil del cachorro" />
@@ -93,7 +94,12 @@ function PetDetails({ route, navigation }) {
           </View>
         </View>
         <View style={styles.footer}>
-          <Button title="Adoptar" style={styles.Button} colorText="black" />
+          <Button
+            title="Adoptar"
+            style={styles.Button}
+            colorText="black"
+            onPress={() => navigation.navigate(routes.ADOPTION_REQUEST, pet)}
+          />
           <Button
             title="Apoyar Refugio"
             style={styles.Button}

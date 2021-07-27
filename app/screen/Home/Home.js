@@ -16,16 +16,7 @@ function Home({ route, navigation }) {
           data={Object.keys(params)}
           keyExtractor={(index) => index.toString()}
           renderItem={({ item }) => (
-            <Card
-              name={params[item].name}
-              description={params[item].description}
-              photo={params[item].photo}
-              title={params[item].refuge.name}
-              image={params[item].image}
-              onPress={() =>
-                navigation.navigate(routes.PET_DETAILS, params[item])
-              }
-            />
+            <Card pet={params[item]} navigation={navigation} />
           )}
         />
       </View>
