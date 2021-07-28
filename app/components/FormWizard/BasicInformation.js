@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import pets from "../../models/PetModels";
 import AppText from "../AppTex";
 import Button from "../Button";
 

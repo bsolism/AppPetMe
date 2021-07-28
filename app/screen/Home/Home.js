@@ -2,7 +2,6 @@ import React from "react";
 import { View, FlatList } from "react-native";
 import Screen from "../../components/Screen";
 import Card from "../../components/Card";
-import routes from "../../Navigation/routes";
 
 import styles from "./styles";
 

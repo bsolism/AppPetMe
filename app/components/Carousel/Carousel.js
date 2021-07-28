@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { View, FlatList, Animated, Dimensions } from "react-native";
+import colors from "../../config/colors";
 import CarouselItem from "./CarouselItem";
 
 import styles from "./styles";
@@ -62,7 +63,7 @@ function Carousel(props) {
                   opacity,
                   height: 10,
                   width: 10,
-                  backgroundColor: "#595959",
+                  backgroundColor: colors.granite_grey,
                   margin: 8,
                   borderRadius: 5,
                 }}

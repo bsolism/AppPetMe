@@ -3,14 +3,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import DrawerNavigator from "./DrawerNavigator";
 import PetDetails from "../screen/PetDetails";
 import colors from "../config/colors";
-import Form from "../screen/Form";
 import AdoptionRequest from "../screen/AdoptionRequest";
 
 const Stack = createStackNavigator();
-
-const screenOptionStyle = {
-  headerShown: false,
-};
 
 const AppNavigator = () => {
   return (
@@ -29,15 +24,15 @@ const AppNavigator = () => {
           headerStyle: { backgroundColor: colors.blue },
         })}
       />
-      <Stack.Screen
-        name="Form"
-        component={Form}
-        options={{ headerShown: true }}
-      />
+
       <Stack.Screen
         name="AdoptionRequest"
         component={AdoptionRequest}
-        options={{ headerShown: true, title: "Adoption Form" }}
+        options={{
+          headerShown: true,
+          title: "Adoption Form",
+          headerStyle: { backgroundColor: colors.blue },
+        }}
       />
     </Stack.Navigator>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useFormikContext } from "formik";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
+import AppText from "../AppTex";
 
 import TextInput from "../TextInput";
 import ErrorMessage from "./ErrorMessage";
@@ -16,7 +17,7 @@ function FormField(props) {
     <>
       <View style={styles.containerLabel}>
         {values[name] || visible ? (
-          <Text style={styles.label}>{label}</Text>
+          <AppText style={styles.label}>{label}</AppText>
         ) : null}
       </View>
       <TextInput

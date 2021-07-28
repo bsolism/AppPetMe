@@ -1,5 +1,6 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { StyleSheet } from "react-native";
 import Home from "../screen/Home";
 import pets from "../models/PetModels";
 
@@ -10,7 +11,7 @@ function TabNavigator(props) {
     <Tab.Navigator
       tabBarOptions={{
         labelStyle: { fontSize: 12 },
-        style: { height: 40, backgroundColor: "transparent" },
+        style: styles.tabNavigator,
       }}
     >
       <Tab.Screen
@@ -31,5 +32,11 @@ function TabNavigator(props) {
     </Tab.Navigator>
   );
 }
+const styles = StyleSheet.create({
+  tabNavigator: {
+    height: 40,
+    backgroundColor: "transparent",
+  },
+});
 
 export default TabNavigator;

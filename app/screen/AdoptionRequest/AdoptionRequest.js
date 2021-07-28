@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Text, View } from "react-native";
+import React, { useState } from "react";
+import { View } from "react-native";
 import * as Yup from "yup";
 import { Form } from "../../components/FormComponent";
 import Wizard from "../../components/FormWizard/Wizard";
-import Screen from "../../components/Screen";
+
+import initialValues from "../../models/ValueFormAdoption";
 
 import styles from "./styles";
 
@@ -50,22 +51,4 @@ function AdoptionRequest(props) {
     </View>
   );
 }
-
-const initialValues = {
-  name: "",
-  dni: "",
-  phone: "",
-  email: "",
-  address: "",
-  city: "",
-  country: "",
-  province: "",
-  petId: 0,
-  comentary: "",
-  hasPets: false,
-  whatPet: "",
-  why: "",
-  timeAlone: "",
-};
-
 export default AdoptionRequest;

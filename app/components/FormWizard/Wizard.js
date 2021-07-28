@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
-import * as Yup from "yup";
 
 import BasicInformation from "./BasicInformation";
 import AditionalInformation from "./AditionalInformation";
