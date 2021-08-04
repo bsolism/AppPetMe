@@ -21,7 +21,6 @@ function Card(props) {
       <View>
         <AppText style={styles.title}>{pet.name}</AppText>
         <Carousel photo={pet.photo} padding={40} height={300} />
-        {/* <Image style={styles.photo} source={photo} /> */}
       </View>
 
       <View style={styles.description}>

@@ -5,10 +5,10 @@ import CarouselItem from "./CarouselItem";
 
 import styles from "./styles";
 
-const { width, heigth } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 function Carousel(props) {
-  const { photo, style, padding, height } = props;
+  const { photo, padding, height } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);

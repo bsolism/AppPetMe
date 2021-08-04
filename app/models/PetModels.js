@@ -7,15 +7,15 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/littleDog1.jpg"),
+        image: require("../assets/littleDog1.jpg"),
       },
       {
         id: 2,
-        image: require("../../assets/littleDog1.1.jpg"),
+        image: require("../assets/littleDog1.1.jpg"),
       },
       {
         id: 3,
-        image: require("../../assets/littleDog1.2.jpg"),
+        image: require("../assets/littleDog1.2.jpg"),
       },
     ],
     refuge: {
@@ -24,7 +24,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -47,7 +47,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/mediumDog1.jpg"),
+        image: require("../assets/mediumDog1.jpg"),
       },
     ],
     refuge: {
@@ -56,7 +56,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -79,15 +79,15 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/black1.jpg"),
+        image: require("../assets/black1.jpg"),
       },
       {
         id: 2,
-        image: require("../../assets/black1.1.jpg"),
+        image: require("../assets/black1.1.jpg"),
       },
       {
         id: 3,
-        image: require("../../assets/black1.2.jpg"),
+        image: require("../assets/black1.2.jpg"),
       },
     ],
     refuge: {
@@ -96,7 +96,7 @@ const pets = [
       city: "Villanueva",
       address: "Res. Guacamaya",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "4 meses",
     weight: "15 kg",
     height: "80 cm",
@@ -114,7 +114,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/littleDog2.jpg"),
+        image: require("../assets/littleDog2.jpg"),
       },
     ],
     refuge: {
@@ -123,7 +123,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -146,7 +146,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/mediumDog2.jpg"),
+        image: require("../assets/mediumDog2.jpg"),
       },
     ],
     refuge: {
@@ -155,7 +155,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -178,7 +178,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/bigDog2.jpg"),
+        image: require("../assets/bigDog2.jpg"),
       },
     ],
     refuge: {
@@ -187,7 +187,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -210,7 +210,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/littleDog3.jpg"),
+        image: require("../assets/littleDog3.jpg"),
       },
     ],
     refuge: {
@@ -219,7 +219,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -242,7 +242,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/mediumDog3.jpg"),
+        image: require("../assets/mediumDog3.jpg"),
       },
     ],
     refuge: {
@@ -251,7 +251,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -274,7 +274,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/bigDog3.jpg"),
+        image: require("../assets/bigDog3.jpg"),
       },
     ],
     refuge: {
@@ -283,7 +283,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -306,7 +306,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/littleDog4.jpg"),
+        image: require("../assets/littleDog4.jpg"),
       },
     ],
     refuge: {
@@ -315,7 +315,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -338,7 +338,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/mediumDog4.jpg"),
+        image: require("../assets/mediumDog4.jpg"),
       },
     ],
     refuge: {
@@ -347,7 +347,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",
@@ -370,7 +370,7 @@ const pets = [
     photo: [
       {
         id: 1,
-        image: require("../../assets/bigDog4.jpg"),
+        image: require("../assets/bigDog4.jpg"),
       },
     ],
     refuge: {
@@ -379,7 +379,7 @@ const pets = [
       city: "San Pedro Sula",
       address: "Barrio el Centro",
     },
-    image: require("../../assets/img.png"),
+    image: require("../assets/img.png"),
     old: "2 años",
     weight: "10 kg",
     height: "80 cm",

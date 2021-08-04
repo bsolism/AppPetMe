@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import * as Yup from "yup";
+
 import { Form } from "../../components/FormComponent";
 import Wizard from "../../components/FormWizard/Wizard";
-
 import initialValues from "../../models/ValueFormAdoption";
 
 import styles from "./styles";

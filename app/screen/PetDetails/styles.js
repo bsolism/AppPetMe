@@ -1,8 +1,6 @@
 import { StyleSheet, useWindowDimensions } from "react-native";
 import colors from "../../config/colors";
 
-const { height } = useWindowDimensions;
-
 const styles = StyleSheet.create({
   Button: {
     width: "40%",

@@ -12,13 +12,10 @@ function Welcome({ navigation }) {
     <ImageBackground
       style={styles.background}
       blurRadius={3}
-      source={require("../../../assets/background.jpg")}
+      source={require("../../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          source={require("../../../assets/logo.png")}
-        />
+        <Image style={styles.logo} source={require("../../assets/logo.png")} />
         <AppText style={styles.tagLine}>PetMe</AppText>
       </View>
       <View style={styles.buttonsContainer}>
