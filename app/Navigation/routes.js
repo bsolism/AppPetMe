@@ -3,4 +3,6 @@ export default Object.freeze({
   HOME: "Home",
   FORM: "Form",
   ADOPTION_REQUEST: "AdoptionRequest",
+  LOGIN: "Login",
+  REGISTER: "Register",
 });

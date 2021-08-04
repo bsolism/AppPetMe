@@ -21,7 +21,7 @@ function DrawerNavigator(props) {
       }}
       drawerContent={(props) => <CustomDrawer {...props} />}
     >
-      <Drawer.Screen component={TabNavigator} name="Tab" />
+      <Drawer.Screen component={TabNavigator} name="Inicio" />
       <Drawer.Screen component={Profile} name="Profile" />
     </Drawer.Navigator>
   );

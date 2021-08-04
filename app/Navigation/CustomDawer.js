@@ -6,15 +6,18 @@ import {
 } from "@react-navigation/drawer";
 import AppText from "../components/AppTex";
 import colors from "../config/colors";
+import useAuth from "../auth/useAuth";
 
 function CustomDrawer(props) {
+  const { user, logOut } = useAuth();
+
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView {...props}>
         <View style={styles.containerDrawer}>
           <View>
-            <AppText>Bernardo Solis</AppText>
-            <AppText>bsolis@email.com</AppText>
+            <AppText>{user.unique_name}</AppText>
+            <AppText>{user.email}</AppText>
           </View>
           <Image
             source={{
@@ -25,7 +28,7 @@ function CustomDrawer(props) {
         </View>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
-      <TouchableOpacity style={styles.Touchable}>
+      <TouchableOpacity style={styles.Touchable} onPress={() => logOut()}>
         <AppText>Log Out</AppText>
       </TouchableOpacity>
     </View>
