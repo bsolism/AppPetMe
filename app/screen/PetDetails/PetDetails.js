@@ -6,7 +6,7 @@ import AppText from "../../components/AppTex";
 import colors from "../../config/colors";
 import Screen from "../../components/Screen";
 import Button from "../../components/Button";
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 
 import styles from "./styles";
 

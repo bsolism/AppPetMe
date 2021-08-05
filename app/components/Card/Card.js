@@ -5,7 +5,7 @@ import AppText from "../AppTex";
 import Carousel from "../Carousel";
 
 import styles from "./styles";
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 
 function Card(props) {
   const { pet, navigation } = props;

@@ -3,7 +3,7 @@ import { ImageBackground, View, Image } from "react-native";
 import AppText from "../../components/AppTex";
 import Button from "../../components/Button";
 
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 
 import styles from "./styles";
 
