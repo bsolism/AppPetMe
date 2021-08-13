@@ -36,7 +36,10 @@ function Login(props) {
     <>
       <ActivityIndicator visible={loginApi.loading} />
       <Screen style={styles.container}>
-        <Image style={styles.logo} source={require("../../assets/logo.png")} />
+        <Image
+          style={styles.logo}
+          source={require("../../assets/PetLogo3.png")}
+        />
         <Form
           initialValues={{ email: "", password: "" }}
           onSubmit={handleSubmit}

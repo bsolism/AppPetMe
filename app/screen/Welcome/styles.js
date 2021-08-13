@@ -14,16 +14,17 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
+    resizeMode: "contain",
   },
   logoContainer: {
     position: "absolute",
-    top: 70,
+    top: 180,
     alignItems: "center",
   },
   tagLine: {
     fontSize: 25,
     fontWeight: "600",
-    paddingVertical: 20,
+    paddingVertical: 5,
   },
 });
 

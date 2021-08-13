@@ -15,7 +15,10 @@ function Welcome({ navigation }) {
       source={require("../../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require("../../assets/logo.png")} />
+        <Image
+          style={styles.logo}
+          source={require("../../assets/PetLogo3.png")}
+        />
         <AppText style={styles.tagLine}>PetMe</AppText>
       </View>
       <View style={styles.buttonsContainer}>
