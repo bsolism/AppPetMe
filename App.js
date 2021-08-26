@@ -8,6 +8,8 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
 import Profile from "./app/screen/Profile";
+import PicketImagen from "./app/components/PicketImagen";
+import DemoCamera from "./app/components/DemoCamera";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -28,10 +30,13 @@ export default function App() {
     );
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
-      <NavigationContainer ref={navigationRef}>
-        {user ? <AppNavigator /> : <AuthNavigator />}
-      </NavigationContainer>
-    </AuthContext.Provider>
+    <>
+      <AuthContext.Provider value={{ user, setUser }}>
+        <NavigationContainer ref={navigationRef}>
+          {/*<Profile />*/}
+          {user ? <AppNavigator /> : <AuthNavigator />}
+        </NavigationContainer>
+      </AuthContext.Provider>
+    </>
   );
 }

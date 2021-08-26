@@ -1,50 +1,124 @@
 import React, { useState, useEffect } from "react";
-import { View, Image } from "react-native";
+import { View, TouchableWithoutFeedback } from "react-native";
 import Screen from "../../components/Screen";
 import SeparadorTitle from "../../components/SeparadorTitle";
 import AppText from "../../components/AppTex";
 import authStorage from "../../auth/storage";
-import AppLoading from "expo-app-loading";
+import ImagePicker from "../../components/ImagePicker/ImagePicker";
+import AppModal from "./Modal";
+import Icon from "../../components/Icon";
 
 import styles from "./styles";
 
 function Profile(props) {
-  const [user, setUser] = useState();
+  const [dataUser, setDataUser] = useState();
+  const [field, setField] = useState();
+  const [modalVisible, setModalVisible] = useState(false);
+  const [dataModified, setDataModified] = useState({
+    userId: 0,
+    name: "",
+    email: "",
+    phoneNumber: "",
+    image: "",
+    password: "",
+    file: null,
+  });
 
   const restoreUser = async () => {
     const user = await authStorage.getUser();
-    if (user) setUser(user);
+    if (user) setDataUser(user);
+    setDataModified({
+      ...dataModified,
+      userId: Number(user.userId),
+      name: user.name,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      image: user.image,
+      password: user.password,
+    });
   };
 
   useEffect(() => {
     restoreUser();
-    console.log(user);
   }, []);
 
-  console.log(user);
+  const onPressModal = (field) => {
+    setField(field);
+    setModalVisible(true);
+  };
+
   return (
-    <Screen style={styles.container}>
-      <View style={styles.containerImage}>
-        <Image
-          style={styles.image}
-          source={require("../../assets/profile2.png")}
-        />
-      </View>
-      <View style={styles.content}>
-        <SeparadorTitle title="Nombre" />
-        <AppText icon="account" style={styles.text}>
-          {user ? user.unique_name : null}
-        </AppText>
-        <SeparadorTitle title="Email" />
-        <AppText icon="email" style={styles.text}>
-          {user ? user.email : null}
-        </AppText>
-        <SeparadorTitle title="Telefono" />
-        <AppText icon="phone" style={styles.text}>
-          {user ? user.phoneNumber : null}
-        </AppText>
-      </View>
-    </Screen>
+    <>
+      <Screen style={styles.container}>
+        <View style={styles.containerImage}>
+          <ImagePicker img={dataUser} />
+        </View>
+        <View style={styles.content}>
+          <SeparadorTitle title="Nombre" />
+          <View style={styles.row}>
+            <AppText icon="account" style={styles.text}>
+              {dataUser ? dataModified.name : null}
+            </AppText>
+            <TouchableWithoutFeedback onPress={() => onPressModal("name")}>
+              <View style={styles.icon}>
+                <Icon
+                  name="square-edit-outline"
+                  backgroundColor="white"
+                  iconColor="grey"
+                />
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+          <SeparadorTitle title="Telefono" />
+          <View style={styles.row}>
+            <AppText icon="phone" style={styles.text}>
+              {dataUser ? dataModified.phoneNumber : null}
+            </AppText>
+            <TouchableWithoutFeedback
+              onPress={() => onPressModal("phoneNumber")}
+            >
+              <View style={styles.icon}>
+                <Icon
+                  name="square-edit-outline"
+                  backgroundColor="white"
+                  iconColor="grey"
+                />
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+          <SeparadorTitle title="Email" />
+          <View style={styles.row}>
+            <AppText icon="email" style={styles.text}>
+              {dataUser ? dataModified.email : null}
+            </AppText>
+          </View>
+          <SeparadorTitle title="Contraseña" />
+          <View style={styles.row}>
+            <AppText icon="lock" style={styles.text}>
+              **********
+            </AppText>
+            <TouchableWithoutFeedback onPress={() => onPressModal("password")}>
+              <View style={styles.icon}>
+                <Icon
+                  name="square-edit-outline"
+                  backgroundColor="white"
+                  iconColor="grey"
+                />
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </View>
+      </Screen>
+      <AppModal
+        dataUser={dataUser}
+        setDataUser={setDataUser}
+        dataModified={dataModified}
+        setDataModified={setDataModified}
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        field={field}
+      />
+    </>
   );
 }
 
