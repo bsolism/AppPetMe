@@ -51,13 +51,13 @@ function Profile(props) {
     <>
       <Screen style={styles.container}>
         <View style={styles.containerImage}>
-          <ImagePicker img={dataUser} />
+          <ImagePicker dataUser={dataUser} />
         </View>
         <View style={styles.content}>
           <SeparadorTitle title="Nombre" />
           <View style={styles.row}>
             <AppText icon="account" style={styles.text}>
-              {dataUser ? dataModified.name : null}
+              {dataUser ? dataUser.name : null}
             </AppText>
             <TouchableWithoutFeedback onPress={() => onPressModal("name")}>
               <View style={styles.icon}>
@@ -72,7 +72,7 @@ function Profile(props) {
           <SeparadorTitle title="Telefono" />
           <View style={styles.row}>
             <AppText icon="phone" style={styles.text}>
-              {dataUser ? dataModified.phoneNumber : null}
+              {dataUser ? dataUser.phoneNumber : null}
             </AppText>
             <TouchableWithoutFeedback
               onPress={() => onPressModal("phoneNumber")}
@@ -89,7 +89,7 @@ function Profile(props) {
           <SeparadorTitle title="Email" />
           <View style={styles.row}>
             <AppText icon="email" style={styles.text}>
-              {dataUser ? dataModified.email : null}
+              {dataUser ? dataUser.email : null}
             </AppText>
           </View>
           <SeparadorTitle title="Contraseña" />

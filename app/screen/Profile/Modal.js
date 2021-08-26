@@ -19,6 +19,7 @@ import styles from "./styles";
 function AppModal(props) {
   const {
     dataUser,
+    setDataUser,
     dataModified,
     setDataModified,
     modalVisible,
@@ -47,7 +48,7 @@ function AppModal(props) {
 
   const handleSubmit = async (data) => {
     console.log(data);
-    setDataModified({ ...dataModified, [field]: data[field] });
+    setDataUser({ ...dataUser, [field]: data[field] });
     const result = await updateApi.request(data, field);
     auth.logIn(result.data.token);
 

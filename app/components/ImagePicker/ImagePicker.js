@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import useApi from "../../hooks/useApi";
+import user from "../../service/user";
+import useAuth from "../../auth/useAuth";
 
 import server from "../../service/server";
 
 import styles from "./styles";
 
 function AppImagePicker(props) {
-  const { img } = props;
-  const [image, setImage] = useState(img);
+  const { dataUser } = props;
+  const [image, setImage] = useState();
+  const updateApi = useApi(user.updateUser);
+  const auth = useAuth();
+  const [data, setData] = useState();
 
   useEffect(() => {
     imageProfile();
-  }, [img]);
+  }, [dataUser]);
 
   const imageProfile = () => {
-    if (img != undefined) {
-      const uri = server.URI + "/UserImageProfile/" + img.image;
+    if (dataUser != undefined) {
+      const uri = server.URI + "/UserImageProfile/" + dataUser.image;
       setImage(uri);
+      setData({
+        ...data,
+        userId: dataUser.userId,
+        email: dataUser.email,
+        file: null,
+      });
     }
   };
 
@@ -30,6 +42,9 @@ function AppImagePicker(props) {
     });
     if (!result.cancelled) {
       setImage(result.uri);
+      data.file = result.uri;
+      const res = await user.updateUser(data, "file");
+      auth.logIn(res.data.token);
     }
   };
 

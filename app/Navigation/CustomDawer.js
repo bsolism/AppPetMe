@@ -16,7 +16,7 @@ function CustomDrawer(props) {
       <DrawerContentScrollView {...props}>
         <View style={styles.containerDrawer}>
           <View>
-            <AppText>{user.unique_name}</AppText>
+            <AppText>{user.name}</AppText>
             <AppText>{user.email}</AppText>
           </View>
           <Image
