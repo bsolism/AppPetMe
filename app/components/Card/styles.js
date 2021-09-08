@@ -13,6 +13,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     overflow: "hidden",
   },
+  deleteAction: {
+    backgroundColor: colors.danger,
+    width: 70,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   description: {
     padding: 20,
   },
@@ -39,6 +45,11 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
+  },
+  subTitle: {
+    marginLeft: 10,
+    fontSize: 10,
+    color: colors.granite_grey,
   },
 
   title: {

@@ -7,6 +7,7 @@ import authStorage from "../../auth/storage";
 import ImagePicker from "../../components/ImagePicker/ImagePicker";
 import AppModal from "./Modal";
 import Icon from "../../components/Icon";
+import useAuth from "../../auth/useAuth";
 
 import styles from "./styles";
 
@@ -14,33 +15,16 @@ function Profile(props) {
   const [dataUser, setDataUser] = useState();
   const [field, setField] = useState();
   const [modalVisible, setModalVisible] = useState(false);
-  const [dataModified, setDataModified] = useState({
-    userId: 0,
-    name: "",
-    email: "",
-    phoneNumber: "",
-    image: "",
-    password: "",
-    file: null,
-  });
+  const { user } = useAuth();
 
   const restoreUser = async () => {
     const user = await authStorage.getUser();
     if (user) setDataUser(user);
-    setDataModified({
-      ...dataModified,
-      userId: Number(user.userId),
-      name: user.name,
-      email: user.email,
-      phoneNumber: user.phoneNumber,
-      image: user.image,
-      password: user.password,
-    });
   };
 
   useEffect(() => {
     restoreUser();
-  }, []);
+  }, [user]);
 
   const onPressModal = (field) => {
     setField(field);
@@ -51,7 +35,7 @@ function Profile(props) {
     <>
       <Screen style={styles.container}>
         <View style={styles.containerImage}>
-          <ImagePicker dataUser={dataUser} />
+          <ImagePicker dataUser={dataUser} setDataUser={setDataUser} />
         </View>
         <View style={styles.content}>
           <SeparadorTitle title="Nombre" />
@@ -112,8 +96,6 @@ function Profile(props) {
       <AppModal
         dataUser={dataUser}
         setDataUser={setDataUser}
-        dataModified={dataModified}
-        setDataModified={setDataModified}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         field={field}

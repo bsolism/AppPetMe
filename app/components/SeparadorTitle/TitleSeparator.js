@@ -5,10 +5,10 @@ import AppText from "../AppTex";
 import styles from "./styles";
 
 function TitleSeparator(props) {
-  const { title } = props;
+  const { title, styleText, styleView } = props;
   return (
-    <View style={styles.information}>
-      <AppText style={styles.titleInformation}>{title}</AppText>
+    <View style={[styles.information, styleView]}>
+      <AppText style={[styles.titleInformation, styleText]}>{title}</AppText>
     </View>
   );
 }

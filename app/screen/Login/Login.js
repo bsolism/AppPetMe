@@ -28,9 +28,15 @@ function Login(props) {
 
   const handleSubmit = async ({ email, password }) => {
     const result = await loginApi.request(email, password);
+    //console.log(result.data);
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
     auth.logIn(result.data.token);
+    //const result = await authApi.login(email, password);
+
+    // if (!result.ok) return setLoginFailed(true);
+    //setLoginFailed(false);
+    //auth.logIn(result.data.token);
   };
   return (
     <>
@@ -50,11 +56,13 @@ function Login(props) {
             visible={loginFailed}
           />
           <FormField
-            autoCapitalie="none"
+            autoCapitalize="none"
+            autoCorrect={false}
             icon="email"
             keyboardType="email-address"
             name="email"
             placeholder="Email"
+            textContentType="emailAddress"
           />
           <FormField
             autoCapitalie="none"

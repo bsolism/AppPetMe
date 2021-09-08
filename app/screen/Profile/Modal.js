@@ -17,15 +17,7 @@ import * as Yup from "yup";
 import styles from "./styles";
 
 function AppModal(props) {
-  const {
-    dataUser,
-    setDataUser,
-    dataModified,
-    setDataModified,
-    modalVisible,
-    setModalVisible,
-    field,
-  } = props;
+  const { dataUser, setDataUser, modalVisible, setModalVisible, field } = props;
   const updateApi = useApi(user.updateUser);
   const loginApi = useApi(authApi.login);
   const auth = useAuth();
@@ -51,12 +43,6 @@ function AppModal(props) {
     setDataUser({ ...dataUser, [field]: data[field] });
     const result = await updateApi.request(data, field);
     auth.logIn(result.data.token);
-
-    /*const { data: authToken } = await loginApi.request(
-      userInfo.email,
-      userInfo.password
-    );
-    auth.logIn(authToken.token);*/
     setModalVisible(false);
   };
   return (

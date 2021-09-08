@@ -8,10 +8,25 @@ import ErrorMessage from "./ErrorMessage";
 import colors from "../../config/colors";
 
 function FormField(props) {
-  const { name, width, label, ...otherProps } = props;
+  const { name, width, label, data, ...otherProps } = props;
   const { setFieldTouched, setFieldValue, errors, touched, values } =
     useFormikContext();
   const [visible, setvisible] = useState(false);
+
+  const onEndEdit = () => {
+    values[name] ? null : setvisible(false);
+    if (name == "emailUser") {
+      const textFilter = data
+        .filter((x) => x.email == values.emailUser)
+        .map((userId) => userId);
+      if (textFilter != "") {
+        const User = textFilter.map((x) => x.userId);
+        setFieldValue("userId", User[0]);
+      } else {
+        setFieldValue("userId", 0);
+      }
+    }
+  };
 
   return (
     <>
@@ -26,9 +41,10 @@ function FormField(props) {
         value={values[name]}
         width={width}
         onFocus={() => setvisible(true)}
-        onEndEditing={() => (values[name] ? null : setvisible(false))}
+        onEndEditing={() => onEndEdit()}
         {...otherProps}
       />
+
       <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>
   );

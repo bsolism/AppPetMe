@@ -7,7 +7,7 @@ export default {
   dark_grey: "#767577",
   granite_grey: "#595959",
   grey: "#6e6969",
-  light: "#f8f4f4",
+  light: "#fdfcfc",
   light_blue: "#81b0ff",
   light_grey: "#f4f3f4",
   primary: "#fc5c65",

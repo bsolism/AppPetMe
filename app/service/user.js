@@ -1,6 +1,10 @@
 import client from "./Client";
 
-const register = (userInfo) => client.post("/user", userInfo);
+const endPoint = "/user/";
+
+const getUser = () => client.get(endPoint);
+
+const register = (userInfo) => client.post(endPoint, userInfo);
 
 export const updateUser = (dataUser, field) => {
   const data = new FormData();
@@ -16,8 +20,9 @@ export const updateUser = (dataUser, field) => {
   } else {
     data.append([field], dataUser[field]);
   }
+  console.log(data);
 
-  return client.put("/user/" + dataUser.userId, data);
+  return client.put(endPoint + dataUser.userId, data);
 };
 
-export default { register, updateUser };
+export default { getUser, register, updateUser };

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { StyleSheet } from "react-native";
 import Home from "../screen/Home";
-import pets from "../models/PetModels";
+import ActivityIndicator from "../components/ActivityIndicator";
+import useApi from "../hooks/useApi";
+import petApi from "../service/Pets";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -14,21 +16,9 @@ function TabNavigator(props) {
         style: styles.tabNavigator,
       }}
     >
-      <Tab.Screen
-        name="Little"
-        component={Home}
-        initialParams={pets.filter((pet) => pet.category === "Little")}
-      />
-      <Tab.Screen
-        name="Medium"
-        component={Home}
-        initialParams={pets.filter((pet) => pet.category === "Medium")}
-      />
-      <Tab.Screen
-        name="Big"
-        component={Home}
-        initialParams={pets.filter((pet) => pet.category === "Big")}
-      />
+      <Tab.Screen name="Little" component={Home} />
+      <Tab.Screen name="Medium" component={Home} />
+      <Tab.Screen name="Big" component={Home} />
     </Tab.Navigator>
   );
 }

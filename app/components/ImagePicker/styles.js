@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 40,
     backgroundColor: "#6495ED",
+    borderWidth: 1,
+    borderColor: "black",
   },
   IconCamera: {
     width: 30,
@@ -36,6 +38,8 @@ const styles = StyleSheet.create({
     height: 115,
     borderRadius: 114,
     resizeMode: "cover",
+    borderWidth: 1,
+    borderColor: "black",
   },
 });
 

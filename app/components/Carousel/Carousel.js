@@ -8,12 +8,12 @@ import styles from "./styles";
 const { width } = Dimensions.get("window");
 
 function Carousel(props) {
-  const { photo, padding, height } = props;
+  const { photos, padding, height } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
 
-  const data = Object.keys(photo);
+  const data = photos;
   let position = Animated.divide(scrollX, width);
 
   const viewableItemsChanged = useRef(({ viewableItems }) => {
@@ -21,23 +21,20 @@ function Carousel(props) {
   }).current;
 
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
+
   return (
     <View style={styles.container}>
       <View>
         <FlatList
-          data={Object.keys(photo)}
+          data={photos}
           renderItem={({ item }) => (
-            <CarouselItem
-              item={photo[item]}
-              padding={padding}
-              height={height}
-            />
+            <CarouselItem item={item} padding={padding} height={height} />
           )}
           horizontal
           showsHorizontalScrollIndicator
           pagingEnabled
           bounces={false}
-          keyExtractor={(index) => index.toString()}
+          keyExtractor={(pet) => pet.petPhotoId.toString()}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: scrollX } } }],
             {

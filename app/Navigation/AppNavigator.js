@@ -4,6 +4,9 @@ import DrawerNavigator from "./DrawerNavigator";
 import PetDetails from "../screen/PetDetails";
 import colors from "../config/colors";
 import AdoptionRequest from "../screen/AdoptionRequest";
+import ListingHouseRefuge from "../screen/ListingHouseRefuge";
+import RefugeHouseDetail from "../screen/RefugeHouseDetail";
+import RegisterHouse from "../screen/RegisterHouse";
 
 const Stack = createStackNavigator();
 
@@ -24,13 +27,39 @@ const AppNavigator = () => {
           headerStyle: { backgroundColor: colors.blue },
         })}
       />
-
       <Stack.Screen
         name="AdoptionRequest"
         component={AdoptionRequest}
         options={{
           headerShown: true,
           title: "Adoption Form",
+          headerStyle: { backgroundColor: colors.blue },
+        }}
+      />
+      <Stack.Screen
+        name="ListingRefuge"
+        component={ListingHouseRefuge}
+        options={{
+          headerShown: true,
+          title: "Refuge House",
+          headerStyle: { backgroundColor: colors.blue },
+        }}
+      />
+      <Stack.Screen
+        name="RefugeHouseDetail"
+        component={RefugeHouseDetail}
+        options={{
+          headerShown: true,
+          title: "Refuge House",
+          headerStyle: { backgroundColor: colors.blue },
+        }}
+      />
+      <Stack.Screen
+        name="RegisterHouse"
+        component={RegisterHouse}
+        options={{
+          headerShown: true,
+          title: "Register House",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />

@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
   },
   textRowSmall: {
     width: "25%",
-    fontWeight: "600",
   },
   textRowMedium: {
     width: "50%",

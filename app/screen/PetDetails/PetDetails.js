@@ -11,69 +11,86 @@ import routes from "../../navigation/routes";
 import styles from "./styles";
 
 function PetDetails({ route, navigation }) {
-  const pet = route.params;
+  const { params } = route;
+  const pet = params;
   const { height } = useWindowDimensions();
 
   return (
     <Screen style={styles.container}>
       <View style={styles.containerImage}>
-        <Carousel photo={pet.photo} padding={20} height={height * 0.4} />
+        <Carousel photos={pet.petPhotos} padding={20} height={height * 0.4} />
       </View>
       <ScrollView style={styles.scrollview}>
         <TitleSeparator title="Perfil del cachorro" />
         <View style={styles.profilePet}>
           <View style={styles.row}>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Name:
-            </AppText>
-            <AppText style={styles.textRowSmall}>{pet.name}</AppText>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Edad:
-            </AppText>
-            <AppText style={styles.textRowSmall}>{pet.old}</AppText>
+            <View style={styles.textRowSmall}>
+              <AppText style={{ color: colors.grey }}>Name:</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText>{pet.name}</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText style={{ color: colors.grey }}>Edad:</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText>{pet.old}</AppText>
+            </View>
           </View>
           <View style={styles.row}>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Peso:
-            </AppText>
-            <AppText style={styles.textRowSmall}>{pet.weight}</AppText>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Altura:
-            </AppText>
-            <AppText style={styles.textRowSmall}>{pet.height}</AppText>
+            <View style={styles.textRowSmall}>
+              <AppText style={{ color: colors.grey }}>Peso:</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText>{pet.weight}</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText style={{ color: colors.grey }}>Altura:</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText>{pet.height}</AppText>
+            </View>
           </View>
           <View style={styles.row}>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Sexo:
-            </AppText>
-            <AppText style={styles.textRowSmall}>{pet.sex}</AppText>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Color:
-            </AppText>
-            <AppText style={styles.textRowSmall}>{pet.color}</AppText>
+            <View style={styles.textRowSmall}>
+              <AppText style={{ color: colors.grey }}>Sexo:</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText>{pet.sex}</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText style={{ color: colors.grey }}>Color:</AppText>
+            </View>
+            <View style={styles.textRowSmall}>
+              <AppText>{pet.color}</AppText>
+            </View>
           </View>
         </View>
         <TitleSeparator title="Perfil del Refugio" />
         <View style={styles.profilePet}>
           <View style={styles.row}>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Name:
-            </AppText>
-            <AppText style={[styles.textRowLarge]}>{pet.refuge.name}</AppText>
+            <View style={[styles.textRowSmall, { color: colors.grey }]}>
+              <AppText>Name:</AppText>
+            </View>
+            <View style={[styles.textRowLarge]}>
+              <AppText>{pet.profileHouse.name}</AppText>
+            </View>
           </View>
           <View style={styles.row}>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Ciudad:
-            </AppText>
-            <AppText style={[styles.textRowLarge]}>{pet.refuge.city}</AppText>
+            <View style={[styles.textRowSmall, { color: colors.grey }]}>
+              <AppText>Ciudad:</AppText>
+            </View>
+            <View style={[styles.textRowLarge]}>
+              <AppText>{pet.profileHouse.city}</AppText>
+            </View>
           </View>
           <View style={styles.row}>
-            <AppText style={[styles.textRowSmall, { color: colors.grey }]}>
-              Direccion:
-            </AppText>
-            <AppText style={[styles.textRowLarge]}>
-              {pet.refuge.address}
-            </AppText>
+            <View style={[styles.textRowSmall, { color: colors.grey }]}>
+              <AppText>Direccion:</AppText>
+            </View>
+            <View style={[styles.textRowLarge]}>
+              <AppText>{pet.profileHouse.address}</AppText>
+            </View>
           </View>
         </View>
         <TitleSeparator title="Perfil Clinico" />

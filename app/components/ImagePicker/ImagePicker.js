@@ -3,35 +3,28 @@ import { View, Image, TouchableOpacity } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import useApi from "../../hooks/useApi";
 import user from "../../service/user";
+import listingHouse from "../../service/ListingHouse";
 import useAuth from "../../auth/useAuth";
+import imagePickerApi from "../../hooks/imagePickerApi";
 
 import server from "../../service/server";
 
 import styles from "./styles";
 
 function AppImagePicker(props) {
-  const { dataUser } = props;
+  const { dataUser, setDataUser, setParams } = props;
   const [image, setImage] = useState();
   const updateApi = useApi(user.updateUser);
+  const updateProfileHouse = useApi(listingHouse.updateProfileHouse);
   const auth = useAuth();
   const [data, setData] = useState();
+  const imagePicker = imagePickerApi();
 
   useEffect(() => {
-    imageProfile();
-  }, [dataUser]);
-
-  const imageProfile = () => {
-    if (dataUser != undefined) {
-      const uri = server.URI + "/UserImageProfile/" + dataUser.image;
-      setImage(uri);
-      setData({
-        ...data,
-        userId: dataUser.userId,
-        email: dataUser.email,
-        file: null,
-      });
+    {
+      imagePicker.imageProfile(dataUser);
     }
-  };
+  }, [dataUser]);
 
   const onSelectImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -41,10 +34,23 @@ function AppImagePicker(props) {
       quality: 1,
     });
     if (!result.cancelled) {
-      setImage(result.uri);
-      data.file = result.uri;
-      const res = await user.updateUser(data, "file");
-      auth.logIn(res.data.token);
+      //setImage(result.uri);
+      imagePicker.setImage(result.uri);
+      imagePicker.data.file = result.uri;
+      if (imagePicker.data.profileHouseId) {
+        const res = await updateProfileHouse.request(imagePicker.data, "file");
+        setDataUser(res.data);
+        setParams(res.data);
+        //const res = await updateProfileHouse.request(imagePicker.data, "file");
+      } else {
+        const res = await user.updateUser(data, "file");
+        auth.logIn(res.data.token);
+      }
+
+      //data.file = result.uri;
+
+      //const res = await user.updateUser(data, "file");
+      //auth.logIn(res.data.token);
     }
   };
 
@@ -57,9 +63,9 @@ function AppImagePicker(props) {
         <Image
           style={styles.ImageProfile}
           source={
-            image == undefined
+            !imagePicker.image
               ? require("../../assets/user.png")
-              : { uri: image }
+              : { uri: imagePicker.image }
           }
         />
       </TouchableOpacity>
