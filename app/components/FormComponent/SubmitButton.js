@@ -4,6 +4,7 @@ import Button from "../Button";
 
 function SubmitButton({ title, style }) {
   const { handleSubmit } = useFormikContext();
+
   return (
     <Button
       title={title}

@@ -39,7 +39,6 @@ function AppModal(props) {
   };
 
   const handleSubmit = async (data) => {
-    console.log(data);
     setDataUser({ ...dataUser, [field]: data[field] });
     const result = await updateApi.request(data, field);
     auth.logIn(result.data.token);

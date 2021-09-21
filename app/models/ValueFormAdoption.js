@@ -8,9 +8,12 @@ export default {
   country: "",
   province: "",
   petId: 0,
+  profileHouseId: 0,
   comentary: "",
   hasPets: false,
   whatPet: "",
   why: "",
   timeAlone: "",
+  isApproved: false,
+  isActive: true,
 };

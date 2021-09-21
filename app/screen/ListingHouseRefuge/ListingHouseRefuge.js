@@ -14,9 +14,16 @@ function ListingHouseRefuge({ navigation }) {
   const [data, setData] = useState();
 
   useEffect(() => {
-    getProfileHouseApi.request();
-    setData(getProfileHouseApi.data);
-  }, []);
+    refresh(navigation);
+  }, [navigation]);
+
+  const refresh = (navigation) => {
+    const listerned = navigation.addListener("focus", () => {
+      getProfileHouseApi.request();
+      setData(getProfileHouseApi.data);
+    });
+    return listerned;
+  };
 
   const handleDelete = (message) => {
     setMessages(messages.filter((m) => m.id !== message.id));

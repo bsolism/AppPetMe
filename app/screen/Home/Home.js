@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Button } from "react-native";
 import Screen from "../../components/Screen";
 import Card from "../../components/Card";
 import useApi from "../../hooks/useApi";
@@ -43,7 +43,15 @@ function Home({ route, navigation }) {
           keyExtractor={(pet) => pet.petId.toString()}
           renderItem={({ item }) => (
             <Card>
-              <ContentCardPet pet={item} navigation={navigation} />
+              <ContentCardPet
+                photoHouse={item.profileHouse.image}
+                nameHouse={item.profileHouse.name}
+                petName={item.name}
+                photos={item.petPhotos}
+                description={item.description}
+                pet={item}
+                navigation={navigation}
+              />
             </Card>
           )}
         />

@@ -10,7 +10,6 @@
       "resizeMode": "cover",
       "backgroundColor": "#e63c4b"
     },
-    
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -19,17 +18,20 @@
     ],
     "ios": {
       "supportsTablet": true
-     
-      }
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./app/assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-     
+      "package": "com.develop.petme"
+    }
+  },
+  "android": {
+    "package": "com.develop.petme",
+    "versionCode": 1,
+    "adaptiveIcon": {
+      "foregroundImage": "./app/assets/adaptive-icon.png",
+      "backgroundColor": "#FFFFFF"
+    },
     "web": {
       "favicon": "./app/assets/favicon.png"
     }
   }
-  }
+}

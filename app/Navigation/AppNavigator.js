@@ -7,6 +7,8 @@ import AdoptionRequest from "../screen/AdoptionRequest";
 import ListingHouseRefuge from "../screen/ListingHouseRefuge";
 import RefugeHouseDetail from "../screen/RefugeHouseDetail";
 import RegisterHouse from "../screen/RegisterHouse";
+import RefugeHouse from "../screen/RefugeHouse";
+import FormAdoption from "../screen/FormAdoption";
 
 const Stack = createStackNavigator();
 
@@ -55,11 +57,29 @@ const AppNavigator = () => {
         }}
       />
       <Stack.Screen
+        name="RefugeHouse"
+        component={RefugeHouse}
+        options={{
+          headerShown: true,
+          title: "Refuge House",
+          headerStyle: { backgroundColor: colors.blue },
+        }}
+      />
+      <Stack.Screen
         name="RegisterHouse"
         component={RegisterHouse}
         options={{
           headerShown: true,
           title: "Register House",
+          headerStyle: { backgroundColor: colors.blue },
+        }}
+      />
+      <Stack.Screen
+        name="FormAdoption"
+        component={FormAdoption}
+        options={{
+          headerShown: true,
+          title: "Form Adoption",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />

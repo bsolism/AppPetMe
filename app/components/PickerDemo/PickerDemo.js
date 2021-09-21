@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, Image, Text } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 import styles from "./styles";
 
-function AppImagePicker(props) {
-  const { imageUri, setImageUri, setImageChange } = props;
+function PickerDemo(props) {
+  const { imageUri, setImageUri } = props;
 
   const onSelectImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -16,10 +16,8 @@ function AppImagePicker(props) {
     });
     if (!result.cancelled) {
       setImageUri(result.uri);
-      if (setImageChange) setImageChange(true);
     }
   };
-
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -43,4 +41,4 @@ function AppImagePicker(props) {
   );
 }
 
-export default AppImagePicker;
+export default PickerDemo;

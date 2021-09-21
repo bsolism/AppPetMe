@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, ScrollView, Alert } from "react-native";
 import ImagePicker from "../../components/ImagePicker";
 import useApi from "../../hooks/useApi";
 import user from "../../service/user";
+import listingService from "../../service/ListingHouse";
 import {
   Form,
   FormField,
@@ -10,6 +11,7 @@ import {
   ErrorMessage,
 } from "../../components/FormComponent";
 import * as Yup from "yup";
+import UploadScreen from "../UploadScreen";
 
 import styles from "./styles";
 const validationSchema = Yup.object().shape({
@@ -23,23 +25,43 @@ const validationSchema = Yup.object().shape({
 
 function RegisterHouse(props) {
   const userApi = useApi(user.getUser);
+  const [progress, setProgress] = useState(0);
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [imageUri, setImageUri] = useState();
 
   useEffect(() => {
     userApi.request();
   }, []);
 
   const register = async (dataForm, { resetForm }) => {
-    console.log(dataForm);
+    dataForm.image = imageUri;
     if (dataForm.userId == 0) {
       Alert.alert("Email de usuario no existe");
       return;
     }
+    setProgress(0);
+    setUploadVisible(true);
 
+    const result = await listingService.addProfileHouse(
+      { ...dataForm },
+      (progress) => setProgress(progress)
+    );
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert("Could not save the listing");
+    }
+
+    setImageUri(null);
     resetForm();
   };
 
   return (
     <ScrollView style={styles.container} keyboardShouldPersistTaps="never">
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={uploadVisible}
+      />
       <Form
         initialValues={{
           name: "",
@@ -55,7 +77,7 @@ function RegisterHouse(props) {
         validationSchema={validationSchema}
       >
         <View style={styles.containerImage}>
-          <ImagePicker />
+          <ImagePicker imageUri={imageUri} setImageUri={setImageUri} />
         </View>
         <View style={styles.content}>
           <FormField

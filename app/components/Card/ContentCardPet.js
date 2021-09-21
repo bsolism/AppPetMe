@@ -9,12 +9,21 @@ import styles from "./styles";
 import routes from "../../navigation/routes";
 
 function ContentCardPet(props) {
-  const { pet, navigation } = props;
+  const {
+    editable,
+    photoHouse,
+    nameHouse,
+    petName,
+    photos,
+    description,
+    pet,
+    navigation,
+  } = props;
 
   return (
     <View>
       <View style={styles.headerContainer}>
-        {pet.profileHouse.image == null ? (
+        {photoHouse == null ? (
           <Image
             style={styles.image}
             source={require("../../assets/img.png")}
@@ -23,20 +32,20 @@ function ContentCardPet(props) {
           <Image
             style={styles.image}
             source={{
-              uri: server.URI + "/houseimageprofile/" + pet.profileHouse.image,
+              uri: server.URI + "/houseimageprofile/" + photoHouse,
             }}
           />
         )}
         <View style={styles.detailHeader}>
-          <AppText style={styles.title}>{pet.profileHouse.name}</AppText>
+          <AppText style={styles.title}>{nameHouse}</AppText>
         </View>
       </View>
       <View>
-        <AppText style={styles.title}>{pet.name}</AppText>
-        {<Carousel photos={pet.petPhotos} padding={40} height={300} />}
+        <AppText style={styles.title}>{petName}</AppText>
+        {<Carousel photos={photos} padding={40} height={300} />}
       </View>
       <View style={styles.description}>
-        <AppText style={styles.titleDescription}>{pet.description}</AppText>
+        <AppText style={styles.titleDescription}>{description}</AppText>
       </View>
       <View style={styles.line}></View>
       <View style={styles.footer}>
@@ -47,19 +56,23 @@ function ContentCardPet(props) {
           color="white"
           colorText="grey"
         />
-        <Button
-          title="Apoyar Refugio"
-          style={styles.button}
-          color="white"
-          colorText="grey"
-        />
-        <Button
-          title="Adoptar"
-          style={styles.button}
-          color="white"
-          colorText="grey"
-          onPress={() => navigation.navigate(routes.ADOPTION_REQUEST, pet)}
-        />
+        {!editable ? (
+          <>
+            <Button
+              title="Apadrinar Refugio"
+              style={styles.button}
+              color="white"
+              colorText="grey"
+            />
+            <Button
+              title="Adoptar"
+              style={styles.button}
+              color="white"
+              colorText="grey"
+              onPress={() => navigation.navigate(routes.ADOPTION_REQUEST, pet)}
+            />
+          </>
+        ) : null}
       </View>
     </View>
   );

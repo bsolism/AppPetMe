@@ -7,9 +7,8 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
-import Profile from "./app/screen/Profile";
-import PicketImagen from "./app/components/PicketImagen";
-import DemoCamera from "./app/components/DemoCamera";
+import RefugeHouse from "./app/screen/RefugeHouse";
+import TabRefuge from "./app/screen/RefugeHouse/TabRefuge";
 
 export default function App() {
   const [user, setUser] = useState();
