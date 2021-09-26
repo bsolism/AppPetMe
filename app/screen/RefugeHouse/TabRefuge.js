@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { View, StyleSheet } from "react-native";
-import Demo from "./Demo";
+import { StyleSheet } from "react-native";
 import RefugeHouseDetail from "../RefugeHouseDetail/RefugeHouseDetail";
 import ListingPets from "./ListingPets";
-import useApi from "../../hooks/useApi";
-import petApi from "../../service/Pets";
+import RequestAdoption from "./RequestAdoption";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -19,7 +17,7 @@ function TabRefuge(props) {
       }}
     >
       <Tab.Screen
-        name="Publicaciones"
+        name="Mascotas"
         component={ListingPets}
         initialParams={data}
       />
@@ -28,6 +26,11 @@ function TabRefuge(props) {
         component={RefugeHouseDetail}
         initialParams={data}
       />
+      {/* <Tab.Screen
+        name="Solicitudes"
+        component={RequestAdoption}
+        initialParams={data}
+      />*/}
     </Tab.Navigator>
   );
 }

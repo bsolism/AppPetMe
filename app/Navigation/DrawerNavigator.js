@@ -3,6 +3,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomDrawer from "./CustomDawer";
 import Profile from "../screen/Profile";
 import TabNavigator from "./TabNavigator";
+import ListingsRequest from "../screen/ListingsRequest";
 import colors from "../config/colors";
 import useAuth from "../auth/useAuth";
 
@@ -36,6 +37,11 @@ function DrawerNavigator(props) {
         component={Profile}
         name="Profile"
         options={{ title: "Perfil" }}
+      />
+      <Drawer.Screen
+        component={ListingsRequest}
+        name="ListingRequest"
+        options={{ title: "Solicitudes de Adopcion" }}
       />
     </Drawer.Navigator>
   );

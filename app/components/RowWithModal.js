@@ -5,19 +5,20 @@ import Icon from "../components/Icon";
 import AppText from "./AppTex";
 
 function RowWithModal(props) {
-  const { titleRow, iconName, itemName, itemEmail, styleText } = props;
+  const { titleRow, iconName, itemName, itemEmail, styleText, style, onPress } =
+    props;
   return (
     <View style={styles.container}>
       <SeparadorTitle title={titleRow} styleText={styleText} />
       <View style={styles.row}>
-        <AppText icon={iconName} style={styles.text}>
+        <AppText icon={iconName} style={[styles.text, style]}>
           {itemName
             ? itemEmail
               ? itemName + ":  " + itemEmail
               : itemName
             : null}
         </AppText>
-        <TouchableWithoutFeedback onPress={() => console.log("Name")}>
+        <TouchableWithoutFeedback onPress={onPress}>
           <View style={styles.icon}>
             <Icon
               name="square-edit-outline"

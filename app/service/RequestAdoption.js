@@ -2,6 +2,8 @@ import client from "./Client";
 
 const endPoint = "/requestadoption/";
 
+const getRequestById = (id) => client.get(endPoint + "house/" + id);
+
 const addRequest = (data, onUploadProgress) => {
   return client.post(endPoint, data, {
     onUploadProgress: (progress) =>
@@ -9,4 +11,4 @@ const addRequest = (data, onUploadProgress) => {
   });
 };
 
-export default { addRequest };
+export default { addRequest, getRequestById };

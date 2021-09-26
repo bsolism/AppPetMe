@@ -4,6 +4,8 @@ const endPoint = "/user/";
 
 const getUser = () => client.get(endPoint);
 
+const getUserByEmail = (email) => client.get(endPoint + email);
+
 const register = (userInfo) => client.post(endPoint, userInfo);
 
 export const updateUser = (dataUser, field) => {
@@ -24,4 +26,4 @@ export const updateUser = (dataUser, field) => {
   return client.put(endPoint + dataUser.userId, data);
 };
 
-export default { getUser, register, updateUser };
+export default { getUser, getUserByEmail, register, updateUser };

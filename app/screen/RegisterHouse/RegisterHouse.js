@@ -42,10 +42,10 @@ function RegisterHouse(props) {
     setProgress(0);
     setUploadVisible(true);
 
-    const result = await listingService.addProfileHouse(
-      { ...dataForm },
-      (progress) => setProgress(progress)
+    const result = await listingService.addProfileHouse(dataForm, (progress) =>
+      setProgress(progress)
     );
+
     if (!result.ok) {
       setUploadVisible(false);
       return alert("Could not save the listing");

@@ -4,11 +4,11 @@ import DrawerNavigator from "./DrawerNavigator";
 import PetDetails from "../screen/PetDetails";
 import colors from "../config/colors";
 import AdoptionRequest from "../screen/AdoptionRequest";
+import AdoptionRequestDetail from "../screen/AdoptionRequestDetail";
 import ListingHouseRefuge from "../screen/ListingHouseRefuge";
 import RefugeHouseDetail from "../screen/RefugeHouseDetail";
 import RegisterHouse from "../screen/RegisterHouse";
 import RefugeHouse from "../screen/RefugeHouse";
-import FormAdoption from "../screen/FormAdoption";
 
 const Stack = createStackNavigator();
 
@@ -75,11 +75,11 @@ const AppNavigator = () => {
         }}
       />
       <Stack.Screen
-        name="FormAdoption"
-        component={FormAdoption}
+        name="AdoptionRequestDetail"
+        component={AdoptionRequestDetail}
         options={{
           headerShown: true,
-          title: "Form Adoption",
+          title: "Request Detail",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />

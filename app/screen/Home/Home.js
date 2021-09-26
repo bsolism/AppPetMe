@@ -15,11 +15,8 @@ function Home({ route, navigation }) {
 
   useEffect(() => {
     tabPress(navigation);
-  }, [navigation]);
-
-  useEffect(() => {
     getPetApi.request();
-  }, []);
+  }, [navigation]);
 
   const tabPress = (navigation) => {
     const listerned = navigation.addListener("tabPress", (e) => {
@@ -39,7 +36,11 @@ function Home({ route, navigation }) {
           </>
         )}
         <FlatList
-          data={getPetApi.data.filter((x) => x.category == category)}
+          data={
+            getPetApi.data
+              ? getPetApi.data.filter((x) => x.category == category)
+              : null
+          }
           keyExtractor={(pet) => pet.petId.toString()}
           renderItem={({ item }) => (
             <Card>

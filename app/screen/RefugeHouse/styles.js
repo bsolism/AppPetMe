@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   header: {
     width: "100%",
-    height: 200,
+    height: 100,
     borderWidth: 1,
     borderColor: "black",
   },

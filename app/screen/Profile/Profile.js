@@ -52,53 +52,6 @@ function Profile(props) {
     setModalVisible(true);
   };
 
-  {
-    /*const [dataUser, setDataUser] = useState();
-  const [field, setField] = useState();
-  const [modalVisible, setModalVisible] = useState(false);
-  const { user } = useAuth();
-  const auth = useAuth();
-  const updateApi = useApi(userApi.updateUser);
-  const [imageChange, setImageChange] = useState(false);
-  const [dataReq, setDataReq] = useState({
-    userId: user.userId,
-    email: user.email,
-    file: null,
-  });
-  const [imageUri, setImageUri] = useState(
-    server.URI + "/UserImageProfile/" + data.image
-  );*/
-  }
-
-  {
-    /*const restoreUser = async () => {
-    const user = await authStorage.getUser();
-    if (user) setDataUser(user);
-  };
-
-  useEffect(() => {
-    restoreUser();
-  }, [user]);
-
-  useEffect(() => {
-    update(imageChange);
-  }, [imageChange]);
-
-  const onPressModal = (field) => {
-    setField(field);
-    setModalVisible(true);
-  };
-  const update = async (imageChange) => {
-    if (imageChange) {
-      dataReq.file = imageUri;
-      const res = await updateApi.request(dataReq, "file");
-      console.log(res.data);
-      auth.logIn(res.data.token);
-      setImageChange(false);
-    }
-  };*/
-  }
-
   return (
     <>
       <Screen style={styles.container}>

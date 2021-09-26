@@ -8,6 +8,7 @@ import initialValues from "../../models/ValueFormAdoption";
 import requestAdoptionApi from "../../service/RequestAdoption";
 import UploadScreen from "../UploadScreen";
 import routes from "../../navigation/routes";
+import useAuth from "../../auth/useAuth";
 
 import styles from "./styles";
 
@@ -34,10 +35,12 @@ function AdoptionRequest(props) {
   const { params } = props.route;
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
+  const { user } = useAuth();
 
   const handleSubmit = async (request, { resetForm }) => {
     request.petId = params.petId;
     request.profileHouseId = params.profileHouseId;
+    request.userId = user.userId;
 
     setProgress(0);
     setUploadVisible(true);

@@ -9,8 +9,6 @@ import colors from "../../config/colors";
 
 function ListingPets({ route, navigation }) {
   const { params } = route;
-  console.log(params);
-  const [pets, setPets] = useState(params);
 
   return (
     <View style={styles.container}>

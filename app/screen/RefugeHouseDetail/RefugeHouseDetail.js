@@ -1,44 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ScrollView } from "react-native";
 import Screen from "../../components/Screen";
-import ImagePicker from "../../components/ImagePicker";
 import RowWithModal from "../../components/RowWithModal";
-import server from "../../service/server";
-import useApi from "../../hooks/useApi";
-import listingHouse from "../../service/ListingHouse";
 
 import styles from "./styles";
 
 function RefugeHouseDetail(props) {
   const { params } = props.route;
   const [data, setData] = useState(params);
-  {
-    /*const { params } = props.route;
-  const [data, setData] = useState(params);
-  const [imageUri, setImageUri] = useState(
-    server.URI + "/HouseImageProfile/" + data.image
-  );
-  const [imageChange, setImageChange] = useState(false);
-  const updateProfileHouse = useApi(listingHouse.updateProfileHouse);
-  const [dataReq, setDataReq] = useState({
-    profileHouseId: data.profileHouseId,
-    file: null,
-  });
 
-  useEffect(() => {
-    update(imageChange);
-  }, [imageChange]);
-
-  const update = async (imageChange) => {
-    if (imageChange) {
-      dataReq.file = imageUri;
-      const res = await updateProfileHouse.request(dataReq, "file");
-      setData(res.data);
-      setImageChange(false);
-    }
-  };
-*/
-  }
   return (
     <Screen style={styles.container}>
       <ScrollView>

@@ -9,6 +9,7 @@ export default {
   province: "",
   petId: 0,
   profileHouseId: 0,
+  userId: 0,
   comentary: "",
   hasPets: false,
   whatPet: "",
@@ -16,4 +17,5 @@ export default {
   timeAlone: "",
   isApproved: false,
   isActive: true,
+  isRejected: false,
 };

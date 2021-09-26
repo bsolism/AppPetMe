@@ -1,5 +1,6 @@
 export default Object.freeze({
   ADOPTION_REQUEST: "AdoptionRequest",
+  ADOPTION_REQUEST_DETAIL: "AdoptionRequestDetail",
   FORM: "Form",
   FORM_ADOPTION: "FormAdoption",
   HOME: "Inicio",
