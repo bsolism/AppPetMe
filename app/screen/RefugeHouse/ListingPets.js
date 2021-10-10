@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import React from "react";
+import { View, FlatList, StyleSheet } from "react-native";
 import Card from "../../components/Card";
 import ContentCardPet from "../../components/Card/ContentCardPet";
-import useApi from "../../hooks/useApi";
-import petApi from "../../service/Pets";
 
 import colors from "../../config/colors";
 

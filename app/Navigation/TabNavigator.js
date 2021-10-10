@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { StyleSheet } from "react-native";
 import Home from "../screen/Home";
-import ActivityIndicator from "../components/ActivityIndicator";
-import useApi from "../hooks/useApi";
-import petApi from "../service/Pets";
 
 const Tab = createMaterialTopTabNavigator();
 

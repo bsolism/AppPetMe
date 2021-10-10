@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Image, Text } from "react-native";
+import { View, TouchableOpacity, Image } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 import styles from "./styles";

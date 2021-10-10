@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import * as Yup from "yup";
 
-import { Form, SubmitButton } from "../../components/FormComponent";
+import { Form } from "../../components/FormComponent";
 import Wizard from "../../components/FormWizard/Wizard";
 import initialValues from "../../models/ValueFormAdoption";
 import requestAdoptionApi from "../../service/RequestAdoption";
@@ -47,6 +47,7 @@ function AdoptionRequest(props) {
     const result = await requestAdoptionApi.addRequest(request, (progress) =>
       setProgress(progress)
     );
+    console.log(result);
 
     if (!result.ok) {
       setUploadVisible(false);

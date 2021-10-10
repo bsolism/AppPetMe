@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import React, { useState } from "react";
+import { View } from "react-native";
 import TabRefuge from "./TabRefuge";
 import ImagePicker from "../../components/ImagePicker";
 import server from "../../service/server";

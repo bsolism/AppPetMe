@@ -3,7 +3,6 @@ import { View, TouchableWithoutFeedback } from "react-native";
 import Screen from "../../components/Screen";
 import SeparadorTitle from "../../components/SeparadorTitle";
 import AppText from "../../components/AppTex";
-import authStorage from "../../auth/storage";
 import ImagePicker from "../../components/ImagePicker/ImagePicker";
 import AppModal from "./Modal";
 import Icon from "../../components/Icon";
@@ -11,7 +10,6 @@ import useAuth from "../../auth/useAuth";
 import userApi from "../../service/user";
 import server from "../../service/server";
 import useApi from "../../hooks/useApi";
-import UploadScreen from "../UploadScreen";
 
 import styles from "./styles";
 

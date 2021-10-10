@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { View, TouchableWithoutFeedback } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../../config/colors";

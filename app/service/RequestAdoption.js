@@ -10,5 +10,7 @@ const addRequest = (data, onUploadProgress) => {
       onUploadProgress(progress.loaded / progress.total),
   });
 };
+const updateUser = (info) =>
+  client.put(endPoint + info.requestAdoptionId, info);
 
-export default { addRequest, getRequestById };
+export default { addRequest, getRequestById, updateUser };

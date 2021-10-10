@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableHighlight,
-  StyleSheet,
-  Button,
-} from "react-native";
+import { View, Image, TouchableHighlight, StyleSheet } from "react-native";
 import server from "../../service/server";
 import AppText from "../AppTex";
 import { Swipeable } from "react-native-gesture-handler";

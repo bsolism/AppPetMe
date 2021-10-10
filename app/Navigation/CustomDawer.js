@@ -11,7 +11,6 @@ import server from "../service/server";
 import routes from "../navigation/routes";
 import { Drawer } from "react-native-paper";
 import TitleSeparator from "../components/SeparadorTitle";
-import ListingHouseRefuge from "../screen/ListingHouseRefuge";
 
 function CustomDrawer(props) {
   const { navigation, user, logOut } = props;

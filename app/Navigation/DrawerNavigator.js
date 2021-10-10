@@ -7,11 +7,6 @@ import ListingsRequest from "../screen/ListingsRequest";
 import colors from "../config/colors";
 import useAuth from "../auth/useAuth";
 
-import { Drawer as DrawerPaper } from "react-native-paper";
-import SideMenu from "./SideMenu";
-import ItemDrawer from "./ItemDrawer";
-import ListingHouseRefuge from "../screen/ListingHouseRefuge";
-
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator(props) {
