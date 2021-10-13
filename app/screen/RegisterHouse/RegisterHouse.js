@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, ScrollView, Alert } from "react-native";
 import ImagePicker from "../../components/ImagePicker";
 import useApi from "../../hooks/useApi";
-import user from "../../service/user";
+import users from "../../service/user";
+import useAuth from "../../auth/useAuth";
 import listingService from "../../service/ListingHouse";
 import {
   Form,
@@ -20,14 +21,18 @@ const validationSchema = Yup.object().shape({
   phone: Yup.string().required().label("Phone Number"),
   city: Yup.string().required().label("City"),
   address: Yup.string().required().label("Address"),
-  emailUser: Yup.string().required().email().label("Email"),
+  //emailUser: Yup.string().required().email().label("Email"),
 });
 
 function RegisterHouse(props) {
-  const userApi = useApi(user.getUser);
+  const userApi = useApi(users.getUser);
   const [progress, setProgress] = useState(0);
   const [uploadVisible, setUploadVisible] = useState(false);
   const [imageUri, setImageUri] = useState();
+  const auth = useAuth();
+  const { user } = useAuth();
+  const [dataUser, setDataUser] = useState(user);
+  const updateApi = useApi(users.updateUser);
 
   useEffect(() => {
     userApi.request();
@@ -35,21 +40,27 @@ function RegisterHouse(props) {
 
   const register = async (dataForm, { resetForm }) => {
     dataForm.image = imageUri;
+
+    if (user.rol !== 3) dataForm.userId = user.userId;
+
     if (dataForm.userId == 0) {
       Alert.alert("Email de usuario no existe");
       return;
     }
     setProgress(0);
     setUploadVisible(true);
-
     const result = await listingService.addProfileHouse(dataForm, (progress) =>
       setProgress(progress)
     );
-
     if (!result.ok) {
       setUploadVisible(false);
       return alert("Could not save the listing");
     }
+    setDataUser({ ...dataUser, rol: 2 });
+
+    const res = await updateApi.request(dataUser, "rol");
+
+    auth.logIn(res.data.token);
 
     setImageUri(null);
     resetForm();
@@ -70,8 +81,11 @@ function RegisterHouse(props) {
           city: "",
           address: "",
           image: null,
-          emailUser: "",
           userId: 0,
+          rtn: "",
+          accountBank: "",
+          typeAccount: "",
+          bankName: "",
         }}
         onSubmit={register}
         validationSchema={validationSchema}
@@ -84,7 +98,7 @@ function RegisterHouse(props) {
             autoCorrect={false}
             icon="home-account"
             name="name"
-            placeholder="Name"
+            placeholder="Name House Refuge"
           />
           <FormField
             autoCorrect={false}
@@ -114,15 +128,41 @@ function RegisterHouse(props) {
             placeholder="Phone"
           />
           <FormField
-            autoCapitalize="none"
             autoCorrect={false}
-            keyboardType="email-address"
-            textContentType="emailAddress"
-            icon="email"
-            name="emailUser"
-            placeholder="User Email"
-            data={userApi.data}
+            icon="passport-biometric"
+            name="rtn"
+            placeholder="RTN / DNI"
           />
+          <FormField
+            autoCorrect={false}
+            icon="account-cash"
+            name="accountBank"
+            placeholder="No. Cuenta Banco"
+          />
+          <FormField
+            autoCorrect={false}
+            icon="cash-usd"
+            name="typeAccount"
+            placeholder="Tipo Cuenta (ahorro, cheque, etc)"
+          />
+          <FormField
+            autoCorrect={false}
+            icon="bank"
+            name="bankName"
+            placeholder="Nombre Banco"
+          />
+          {user.rol == 1 ? (
+            <FormField
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="email-address"
+              textContentType="emailAddress"
+              icon="email"
+              name="emailUser"
+              placeholder="User Email"
+              data={userApi.data}
+            />
+          ) : null}
 
           <SubmitButton title="Register" />
         </View>

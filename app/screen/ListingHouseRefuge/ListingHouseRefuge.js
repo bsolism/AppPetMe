@@ -6,28 +6,40 @@ import useApi from "../../hooks/useApi";
 import houseProfileApi from "../../service/ListingHouse";
 import ContentListingCard from "../../components/Card/ContentListingCard";
 import ItemDeleteAction from "../../components/Card/ItemDeleteAction";
+import useAuth from "../../auth/useAuth";
 
 import styles from "./styles";
 
 function ListingHouseRefuge({ navigation }) {
   const getProfileHouseApi = useApi(houseProfileApi.getProfileHouse);
+  const serviceHouse = useApi(houseProfileApi.deletedHouse);
+  const getProfileHouseApiById = useApi(houseProfileApi.getHouseByUserId);
   const [data, setData] = useState();
-
-  useEffect(() => {
-    refresh(navigation);
-  }, [navigation]);
+  const { user } = useAuth();
 
   const refresh = (navigation) => {
     const listerned = navigation.addListener("focus", () => {
       getProfileHouseApi.request();
-      setData(getProfileHouseApi.data);
     });
+
     return listerned;
   };
+  useEffect(() => {
+    refresh(navigation);
+  }, [navigation]);
 
-  const handleDelete = (message) => {
-    setMessages(messages.filter((m) => m.id !== message.id));
+  const handleDelete = (item) => {
+    console.log(item.profileHouseId);
+    const res = serviceHouse.request(item.profileHouseId);
+    getProfileHouseApi.setData(
+      getProfileHouseApi.data.filter(
+        (x) => x.profileHouseId != item.profileHouseId
+      )
+    );
+
+    console.log(res);
   };
+
   return (
     <View style={styles.container}>
       {getProfileHouseApi.error && (
@@ -41,7 +53,13 @@ function ListingHouseRefuge({ navigation }) {
       </View>
       <View>
         <FlatList
-          data={getProfileHouseApi.data}
+          data={
+            user.rol != "1"
+              ? getProfileHouseApi.data.filter(
+                  (x) => x.userId == parseInt(user.userId)
+                )
+              : getProfileHouseApi.data
+          }
           keyExtractor={(house) => house.profileHouseId.toString()}
           renderItem={({ item }) => (
             <Card>

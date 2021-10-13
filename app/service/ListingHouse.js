@@ -3,6 +3,8 @@ import client from "./Client";
 const endPoint = "/profilehouse/";
 
 const getProfileHouse = () => client.get(endPoint);
+const getHouseByUserId = (id) => client.get(endPoint + "user/" + id);
+const deletedHouse = (id) => client.delete(endPoint + id);
 
 const addProfileHouse = (dataInfo, onUploadProgress) => {
   const data = new FormData();
@@ -12,11 +14,18 @@ const addProfileHouse = (dataInfo, onUploadProgress) => {
   data.append("phone", dataInfo.phone);
   data.append("email", dataInfo.email);
   data.append("userId", dataInfo.userId);
-  data.append("file", {
-    uri: dataInfo.image,
-    name: "image.jpg",
-    type: "image/jpeg",
-  });
+  data.append("rtn", dataInfo.rtn);
+  data.append("accountBank", dataInfo.accountBank);
+  data.append("typeAccount", dataInfo.typeAccount);
+  data.append("bankName", dataInfo.bankName);
+
+  if (dataInfo.image != undefined) {
+    data.append("file", {
+      uri: dataInfo.image,
+      name: "image.jpg",
+      type: "image/jpeg",
+    });
+  }
 
   return client.post(endPoint, data, {
     onUploadProgress: (progress) =>
@@ -42,4 +51,10 @@ export const updateProfileHouse = (dataForm, field) => {
   return client.put(endPoint + dataForm.profileHouseId, data);
 };
 
-export default { getProfileHouse, addProfileHouse, updateProfileHouse };
+export default {
+  getProfileHouse,
+  getHouseByUserId,
+  addProfileHouse,
+  updateProfileHouse,
+  deletedHouse,
+};

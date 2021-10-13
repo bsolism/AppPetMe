@@ -16,5 +16,5 @@ export default useApi = (apiFunc) => {
     return response;
   };
 
-  return { data, error, loading, request };
+  return { setData, data, error, loading, request };
 };

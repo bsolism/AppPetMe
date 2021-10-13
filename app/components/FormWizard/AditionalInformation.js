@@ -36,7 +36,7 @@ function AditionalInformation(props) {
         label="¿porque quiere mascotas?"
       />
       <View style={styles.row}>
-        <AppText>Tiempo que estará sola la mascota:</AppText>
+        <AppText>horas que la mascota estará sola durante el día:</AppText>
       </View>
       <View style={styles.row}>
         <FormField
@@ -45,7 +45,6 @@ function AditionalInformation(props) {
           keyboardType="numeric"
           width={80}
         />
-        <AppText>horas al día</AppText>
       </View>
 
       <FormField

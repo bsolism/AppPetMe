@@ -4,6 +4,7 @@ import server from "../../service/server";
 import AppText from "../AppTex";
 import { Swipeable } from "react-native-gesture-handler";
 import routes from "../../navigation/routes";
+import Moment from "moment";
 
 import colors from "../../config/colors";
 
@@ -40,6 +41,9 @@ function ListingRequest(props) {
             )}
             <View style={styles.detailHeader}>
               <AppText style={styles.title}>{item.pet.name}</AppText>
+              <AppText style={styles.date}>
+                Fecha: {Moment(item.date).format("DD/MMM/yyyy")}
+              </AppText>
               <AppText style={styles.subTitle}>Casa de refugio</AppText>
             </View>
             <View style={styles.option}>
@@ -71,6 +75,13 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     justifyContent: "center",
     width: "40%",
+  },
+  date: {
+    marginLeft: 10,
+    fontSize: 10,
+    marginBottom: 5,
+    fontStyle: "italic",
+    color: colors.granite_grey,
   },
   headerContainer: {
     flexDirection: "row",
@@ -119,7 +130,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginBottom: 7,
     marginLeft: 10,
   },
 });

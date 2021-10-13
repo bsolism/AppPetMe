@@ -16,7 +16,6 @@ import styles from "./styles";
 
 function AdoptionRequestDetail({ route, navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [isEnabled, setIsEnabled] = useState(false);
   const { height } = useWindowDimensions();
   const [icon, setIcon] = useState();
   const [field, setField] = useState();
@@ -47,18 +46,50 @@ function AdoptionRequestDetail({ route, navigation }) {
       weight: data.pet.weight,
     },
   });
-  const updateApi = useApi(requestService.updateUser);
+  const [isEnabled, setIsEnabled] = useState(data.hasPets);
+  const updateApi = useApi(requestService.update);
 
   const onPressModal = (info) => {
     setField(info);
     setModalVisible(true);
   };
 
-  useEffect(async () => {
+  useEffect(() => {
     if (dataMod.hasPets != isEnabled) {
       setDataMod({ ...dataMod, hasPets: isEnabled });
+      updateSwitch();
     }
   }, [isEnabled]);
+  const updateSwitch = async () => {
+    if (!isEnabled) {
+      const dataUpdate = {
+        requestAdoptionId: dataMod.requestAdoptionId,
+        hasPets: false,
+        whatPet: "",
+        isApproved: dataMod.isApproved,
+        isActive: dataMod.isActive,
+        isRejected: dataMod.isRejected,
+      };
+      setDataMod({ ...dataMod, whatPet: "" });
+      await updateApi.request(dataUpdate);
+    }
+  };
+
+  const Canceled = async () => {
+    const dataUpdate = {
+      requestAdoptionId: dataMod.requestAdoptionId,
+      hasPets: dataMod.hasPets,
+      isApproved: dataMod.isApproved,
+      isActive: false,
+      isRejected: dataMod.isRejected,
+    };
+    setDataMod({ ...dataMod, isActive: false });
+    const res = await updateApi.request(dataUpdate);
+    if (res.ok) {
+      alert("Solicitud de adopción ha sido cancelada");
+      navigation.goBack();
+    }
+  };
 
   return (
     <>
@@ -335,6 +366,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             title="Cancelar Solicitud"
             color="primary"
             colorText="white"
+            onPress={() => Canceled()}
           />
         </ScrollView>
       </Screen>

@@ -16,7 +16,7 @@ import styles from "./styles";
 
 function AppModal(props) {
   const { modalVisible, setModalVisible, data, setData, field } = props;
-  const updateApi = useApi(requestService.updateUser);
+  const updateApi = useApi(requestService.update);
 
   const handleSubmit = async (info) => {
     setData({ ...data, [field.field]: info[field.field] });

@@ -70,7 +70,7 @@ function CustomDrawer(props) {
           </Drawer.Section>
         ) : null}
 
-        {user.rol == "1" ? (
+        {user.rol != "3" ? (
           <Drawer.Section>
             <TitleSeparator
               title="Administrador"

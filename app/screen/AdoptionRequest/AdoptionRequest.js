@@ -47,7 +47,6 @@ function AdoptionRequest(props) {
     const result = await requestAdoptionApi.addRequest(request, (progress) =>
       setProgress(progress)
     );
-    console.log(result);
 
     if (!result.ok) {
       setUploadVisible(false);
