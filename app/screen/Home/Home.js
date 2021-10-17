@@ -45,6 +45,7 @@ function Home({ route, navigation }) {
           renderItem={({ item }) => (
             <Card>
               <ContentCardPet
+              dateCreated={item.dateCreated}
                 photoHouse={item.profileHouse.image}
                 nameHouse={item.profileHouse.name}
                 petName={item.name}

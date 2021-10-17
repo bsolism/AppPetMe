@@ -13,6 +13,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     overflow: "hidden",
   },
+  date: {
+    marginLeft: 10,
+    fontSize: 10,
+    marginBottom: 5,
+    fontStyle: "italic",
+    color: colors.granite_grey,
+  },
   deleteAction: {
     backgroundColor: colors.danger,
     width: 70,
@@ -53,7 +60,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginBottom: 7,
     marginLeft: 10,
   },
   titleDescription: {

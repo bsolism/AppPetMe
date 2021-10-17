@@ -15,6 +15,7 @@ import * as Yup from "yup";
 import UploadScreen from "../UploadScreen";
 
 import styles from "./styles";
+import { cleanSingle } from "react-native-image-crop-picker";
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
@@ -56,9 +57,12 @@ function RegisterHouse(props) {
       setUploadVisible(false);
       return alert("Could not save the listing");
     }
-    setDataUser({ ...dataUser, rol: 2 });
+    //setDataUser({ ...dataUser, rol: 2 });
+    dataUser.rol=2
+    
 
     const res = await updateApi.request(dataUser, "rol");
+    
 
     auth.logIn(res.data.token);
 

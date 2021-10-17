@@ -22,6 +22,7 @@ export const updateUser = (dataUser, field) => {
   } else {
     data.append([field], dataUser[field]);
   }
+  
 
   return client.put(endPoint + dataUser.userId, data);
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Image } from "react-native";
+import Moment from "moment";
 import Button from "../Button";
 import AppText from "../AppTex";
 import Carousel from "../Carousel";
@@ -10,6 +11,7 @@ import routes from "../../navigation/routes";
 
 function ContentCardPet(props) {
   const {
+    dateCreated,
     editable,
     photoHouse,
     nameHouse,
@@ -38,6 +40,9 @@ function ContentCardPet(props) {
         )}
         <View style={styles.detailHeader}>
           <AppText style={styles.title}>{nameHouse}</AppText>
+          <AppText style={styles.date}>
+                Fecha: {Moment(dateCreated).format("DD/MMM/yyyy")}
+              </AppText>
         </View>
       </View>
       <View>
