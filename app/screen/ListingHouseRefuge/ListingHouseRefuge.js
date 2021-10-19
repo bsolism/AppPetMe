@@ -7,6 +7,7 @@ import houseProfileApi from "../../service/ListingHouse";
 import ContentListingCard from "../../components/Card/ContentListingCard";
 import ItemDeleteAction from "../../components/Card/ItemDeleteAction";
 import useAuth from "../../auth/useAuth";
+import Button from "../../components/Button";
 
 import styles from "./styles";
 
@@ -29,7 +30,7 @@ function ListingHouseRefuge({ navigation }) {
   }, [navigation]);
 
   const handleDelete = (item) => {
-    console.log(item.profileHouseId);
+    
     const res = serviceHouse.request(item.profileHouseId);
     getProfileHouseApi.setData(
       getProfileHouseApi.data.filter(
@@ -37,7 +38,7 @@ function ListingHouseRefuge({ navigation }) {
       )
     );
 
-    console.log(res);
+   
   };
 
   return (

@@ -34,7 +34,6 @@ const addProfileHouse = (dataInfo, onUploadProgress) => {
 };
 
 export const updateProfileHouse = (dataForm, field) => {
-  console.log(dataForm);
   const data = new FormData();
   data.append("profileId", dataForm.profileHouseId);
 

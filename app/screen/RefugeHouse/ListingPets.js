@@ -1,5 +1,5 @@
-import React from "react";
-import { View, FlatList, StyleSheet } from "react-native";
+import React, {useEffect} from "react";
+import { View, FlatList, StyleSheet, Text } from "react-native";
 import Card from "../../components/Card";
 import ContentCardPet from "../../components/Card/ContentCardPet";
 
@@ -8,9 +8,12 @@ import colors from "../../config/colors";
 function ListingPets({ route, navigation }) {
   const { params } = route;
 
-  return (
+  console.log(params)
+
+ return (
     <View style={styles.container}>
-      <FlatList
+      <Text>{params}</Text>
+     {/* <FlatList
         data={params.pets}
         keyExtractor={(pet) => pet.petId.toString()}
         renderItem={({ item }) => (
@@ -27,7 +30,7 @@ function ListingPets({ route, navigation }) {
             />
           </Card>
         )}
-      />
+      />*/}
     </View>
   );
 }

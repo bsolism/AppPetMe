@@ -8,7 +8,10 @@ import RequestAdoption from "./RequestAdoption";
 const Tab = createMaterialTopTabNavigator();
 
 function TabRefuge(props) {
-  const { data } = props;
+  const { data, text } = props;
+
+  console.log("Desde tab")
+  console.log(text)
 
   return (
     <Tab.Navigator
@@ -19,7 +22,7 @@ function TabRefuge(props) {
       <Tab.Screen
         name="Mascotas"
         component={ListingPets}
-        initialParams={data}
+        initialParams={text}
       />
       <Tab.Screen
         name="Informacion"
