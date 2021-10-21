@@ -11,6 +11,9 @@ import RefugeHouse from "./app/screen/RefugeHouse";
 import TabRefuge from "./app/screen/RefugeHouse/TabRefuge";
 import Demo from "./app/screen/Demo/Demo";
 import HouseProfile from "./app/screen/RefugeHouse/HouseProfile";
+import ActionButton from "./app/components/ActionButton";
+
+import colors from "./app/config/colors";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -32,14 +35,18 @@ export default function App() {
 
   return (
     <>
-    <HouseProfile/>
-   
-      {/*<AuthContext.Provider value={{ user, setUser }}>
+      {/*<ActionButton
+        size={50}
+        color={colors.primary}
+        backgroundColor={colors.white}
+        onPress={() => console.log("Press Add")}
+      />*/}
+      <AuthContext.Provider value={{ user, setUser }}>
         <NavigationContainer ref={navigationRef}>
-          {/*<Profile />}
+          {/*<Profile />*/}
           {user ? <AppNavigator /> : <AuthNavigator />}
         </NavigationContainer>
-      </AuthContext.Provider>*/}
+      </AuthContext.Provider>
     </>
   );
 }

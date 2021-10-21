@@ -14,7 +14,7 @@ function ContentListingCard(props) {
     <View style={styles.container}>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight
-          onPress={() => navigation.navigate(routes.REFUGE_HOUSE, listing)}
+          onPress={() => navigation.navigate(routes.HOUSE_PROFILE, listing)}
         >
           <View style={styles.headerContainer}>
             {listing.image == null ? (

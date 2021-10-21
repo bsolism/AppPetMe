@@ -8,11 +8,11 @@ import colors from "../../config/colors";
 function ListingPets({ route, navigation }) {
   const { params } = route;
 
-  console.log(params)
+ 
 
  return (
     <View style={styles.container}>
-      <Text>{params}</Text>
+     
      {/* <FlatList
         data={params.pets}
         keyExtractor={(pet) => pet.petId.toString()}

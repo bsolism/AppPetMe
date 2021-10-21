@@ -1,1 +1,1 @@
-export { default } from "./RefugeHouse";
+export { default } from "./HouseProfile";

@@ -6,8 +6,6 @@ const styles = StyleSheet.create({
   containerImage: {
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
-    height: 140,
   },
   header: {
     width: "100%",
@@ -24,14 +22,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   tabOnPress: {
-    backgroundColor: colors.light_grey,
+    backgroundColor: colors.white,
     paddingVertical: 5,
     fontSize: 12,
     width: "50%",
   },
   tabOutPress: {
-    backgroundColor: colors.white,
-
+    backgroundColor: colors.light_grey,
     paddingVertical: 5,
     fontSize: 12,
     width: "50%",
