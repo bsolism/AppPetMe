@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   button: {
     position: "absolute",
     right: 30,
-    bottom: 30,
+    bottom: 80,
     alignItems: "center",
     justifyContent: "center",
   },

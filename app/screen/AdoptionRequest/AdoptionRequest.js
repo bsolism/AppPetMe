@@ -7,7 +7,7 @@ import Wizard from "../../components/FormWizard/Wizard";
 import initialValues from "../../models/ValueFormAdoption";
 import requestAdoptionApi from "../../service/RequestAdoption";
 import UploadScreen from "../UploadScreen";
-import routes from "../../navigation/routes";
+import routes from "../../Navigation/routes";
 import useAuth from "../../auth/useAuth";
 
 import styles from "./styles";

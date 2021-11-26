@@ -13,9 +13,9 @@ function TabNavigator(props) {
         style: styles.tabNavigator,
       }}
     >
-      <Tab.Screen name="Little" component={Home} />
-      <Tab.Screen name="Medium" component={Home} />
-      <Tab.Screen name="Big" component={Home} />
+      <Tab.Screen name="Little" component={Home} options={{tabBarLabel: 'Pequeño'}} />
+      <Tab.Screen name="Medium" component={Home} options={{tabBarLabel: 'Mediano'}}/>
+      <Tab.Screen name="Big" component={Home} options={{tabBarLabel: 'Grande'}}/>
     </Tab.Navigator>
   );
 }

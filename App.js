@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
 
-import { navigationRef } from "./app/navigation/rootNavigator";
-import AppNavigator from "./app/navigation/AppNavigator";
-import AuthNavigator from "./app/navigation/AuthNavigator";
+import { navigationRef } from "./app/Navigation/rootNavigator";
+import AppNavigator from "./app/Navigation/AppNavigator";
+import AuthNavigator from "./app/Navigation/AuthNavigator";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
 import RefugeHouse from "./app/screen/RefugeHouse";

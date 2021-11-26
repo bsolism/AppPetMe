@@ -10,12 +10,17 @@ import Card from "../../components/Card";
 import ContentCardPet from "../../components/Card/ContentCardPet";
 import ActionButton from "../../components/ActionButton";
 import Icon from "../../components/Icon";
-import routes from "../../navigation/routes";
+import routes from "../../Navigation/routes";
 
 import colors from "../../config/colors";
 
 function TabPets(props) {
   const { data, navigation } = props;
+
+  const onRefresh = () => {
+    //TODO: Hacer consulta y update
+    console.log("Update State");
+  };
 
   return (
     <View style={styles.container}>
@@ -42,7 +47,10 @@ function TabPets(props) {
         color={colors.light_blue}
         backgroundColor={colors.white}
         onPress={() =>
-          navigation.navigate(routes.FORM_ADD_PET, data.profileHouseId)
+          navigation.navigate(routes.FORM_ADD_PET, {
+            profileHouseId: data.profileHouseId,
+            onGoBack: onRefresh,
+          })
         }
       />
     </View>

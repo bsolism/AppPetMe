@@ -8,7 +8,7 @@ import {
 import AppText from "../components/AppTex";
 import colors from "../config/colors";
 import server from "../service/server";
-import routes from "../navigation/routes";
+import routes from "../Navigation/routes";
 import { Drawer } from "react-native-paper";
 import TitleSeparator from "../components/SeparadorTitle";
 
