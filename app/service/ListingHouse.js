@@ -3,6 +3,7 @@ import client from "./Client";
 const endPoint = "/profilehouse/";
 
 const getProfileHouse = () => client.get(endPoint);
+const getProfileHouseById = (id) => client.get(endPoint + id);
 const getHouseByUserId = (id) => client.get(endPoint + "user/" + id);
 const deletedHouse = (id) => client.delete(endPoint + id);
 
@@ -53,6 +54,7 @@ export const updateProfileHouse = (dataForm, field) => {
 export default {
   getProfileHouse,
   getHouseByUserId,
+  getProfileHouseById,
   addProfileHouse,
   updateProfileHouse,
   deletedHouse,

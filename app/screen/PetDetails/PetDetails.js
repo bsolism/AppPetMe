@@ -12,7 +12,8 @@ import styles from "./styles";
 
 function PetDetails({ route, navigation }) {
   const { params } = route;
-  const pet = params;
+  const pet = params.pet;
+  const profileHouse = params.house;
   const { height } = useWindowDimensions();
 
   return (
@@ -73,7 +74,9 @@ function PetDetails({ route, navigation }) {
               <AppText>Name:</AppText>
             </View>
             <View style={[styles.textRowLarge]}>
-              <AppText>{pet.profileHouse.name}</AppText>
+              <AppText>
+                {pet.profileHouse ? pet.profileHouse.name : profileHouse.name}
+              </AppText>
             </View>
           </View>
           <View style={styles.row}>
@@ -81,7 +84,9 @@ function PetDetails({ route, navigation }) {
               <AppText>Ciudad:</AppText>
             </View>
             <View style={[styles.textRowLarge]}>
-              <AppText>{pet.profileHouse.city}</AppText>
+              <AppText>
+                {pet.profileHouse ? pet.profileHouse.city : profileHouse.city}
+              </AppText>
             </View>
           </View>
           <View style={styles.row}>
@@ -89,7 +94,11 @@ function PetDetails({ route, navigation }) {
               <AppText>Direccion:</AppText>
             </View>
             <View style={[styles.textRowLarge]}>
-              <AppText>{pet.profileHouse.address}</AppText>
+              <AppText>
+                {pet.profileHouse
+                  ? pet.profileHouse.address
+                  : profileHouse.address}
+              </AppText>
             </View>
           </View>
         </View>

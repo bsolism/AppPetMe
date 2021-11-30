@@ -11,12 +11,9 @@ function RequestAdoption(props) {
   const getRequestApi = useApi(requestApi.getRequestById);
   const { params } = props.route;
   const { navigation } = props;
+  console.log(params);
 
-  useEffect(() => {
-    navigation.addListener("focus", () => {
-      getRequestApi.request(params.profileHouseId);
-    });
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <View style={styles.container}>

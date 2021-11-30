@@ -11,41 +11,17 @@ import Button from "../../components/Button";
 import Modal from "./Modal";
 import requestService from "../../service/RequestAdoption";
 import useApi from "../../hooks/useApi";
+import domain from "./Domain";
 
 import styles from "./styles";
 
 function AdoptionRequestDetail({ route, navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const { height } = useWindowDimensions();
-  const [icon, setIcon] = useState();
   const [field, setField] = useState();
-  const data = route.params;
-  const [dataMod, setDataMod] = useState({
-    requestAdoptionId: data.requestAdoptionId,
-    name: data.name,
-    email: data.email,
-    dni: data.dni,
-    phone: data.phone,
-    address: data.address,
-    city: data.city,
-    province: data.province,
-    country: data.country,
-    timeAlone: data.timeAlone,
-    hasPets: data.hasPets,
-    whatPet: data.whatPet,
-    why: data.why,
-    comentary: data.comentary,
-    isApproved: data.isApproved,
-    isActive: data.isActive,
-    isRejected: data.isRejected,
-    pet: {
-      name: data.pet.name,
-      old: data.pet.old,
-      sex: data.pet.sex,
-      color: data.pet.color,
-      weight: data.pet.weight,
-    },
-  });
+  const data = route.params.item;
+  const onRefresh = route.params.onRefresh;
+  const [dataMod, setDataMod] = useState();
   const [isEnabled, setIsEnabled] = useState(data.hasPets);
   const updateApi = useApi(requestService.update);
 
@@ -53,43 +29,19 @@ function AdoptionRequestDetail({ route, navigation }) {
     setField(info);
     setModalVisible(true);
   };
+  useEffect(() => {
+    const hook = domain.dataHook(data);
+    setDataMod(hook.dataMod);
+  }, []);
 
   useEffect(() => {
-    if (dataMod.hasPets != isEnabled) {
-      setDataMod({ ...dataMod, hasPets: isEnabled });
-      updateSwitch();
+    if (dataMod) {
+      if (dataMod.hasPets != isEnabled) {
+        setDataMod({ ...dataMod, hasPets: isEnabled });
+        domain.updateSwitch(isEnabled, dataMod, setDataMod, updateApi);
+      }
     }
   }, [isEnabled]);
-  const updateSwitch = async () => {
-    if (!isEnabled) {
-      const dataUpdate = {
-        requestAdoptionId: dataMod.requestAdoptionId,
-        hasPets: false,
-        whatPet: "",
-        isApproved: dataMod.isApproved,
-        isActive: dataMod.isActive,
-        isRejected: dataMod.isRejected,
-      };
-      setDataMod({ ...dataMod, whatPet: "" });
-      await updateApi.request(dataUpdate);
-    }
-  };
-
-  const Canceled = async () => {
-    const dataUpdate = {
-      requestAdoptionId: dataMod.requestAdoptionId,
-      hasPets: dataMod.hasPets,
-      isApproved: dataMod.isApproved,
-      isActive: false,
-      isRejected: dataMod.isRejected,
-    };
-    setDataMod({ ...dataMod, isActive: false });
-    const res = await updateApi.request(dataUpdate);
-    if (res.ok) {
-      alert("Solicitud de adopción ha sido cancelada");
-      navigation.goBack();
-    }
-  };
 
   return (
     <>
@@ -108,7 +60,7 @@ function AdoptionRequestDetail({ route, navigation }) {
               titleRow="Nombre"
               styleText={styles.textTitle}
               iconName="dog"
-              itemName={dataMod.pet.name}
+              itemName={dataMod ? dataMod.pet.name : null}
               style={styles.text}
               styleWidth={{
                 width: "49%",
@@ -121,7 +73,7 @@ function AdoptionRequestDetail({ route, navigation }) {
               titleRow="Años"
               styleText={styles.textTitle}
               iconName="baby-carriage"
-              itemName={dataMod.pet.old}
+              itemName={dataMod ? dataMod.pet.old : null}
               style={styles.text}
               styleWidth={{
                 width: "49%",
@@ -134,7 +86,7 @@ function AdoptionRequestDetail({ route, navigation }) {
               titleRow="Sexo"
               styleText={styles.textTitle}
               iconName="gender-male-female"
-              itemName={dataMod.pet.sex}
+              itemName={dataMod ? dataMod.pet.sex : null}
               style={styles.text}
               modal={false}
               styleWidth={{
@@ -147,7 +99,7 @@ function AdoptionRequestDetail({ route, navigation }) {
               titleRow="Color"
               styleText={styles.textTitle}
               iconName="invert-colors"
-              itemName={dataMod.pet.color}
+              itemName={dataMod ? dataMod.pet.color : null}
               style={styles.text}
               modal={false}
               styleWidth={{
@@ -158,7 +110,7 @@ function AdoptionRequestDetail({ route, navigation }) {
               titleRow="Peso"
               styleText={styles.textTitle}
               iconName="weight"
-              itemName={dataMod.pet.weight}
+              itemName={dataMod ? dataMod.pet.weight : null}
               style={styles.text}
               modal={false}
               styleWidth={{
@@ -171,7 +123,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Nombre"
             styleText={styles.textTitle}
             iconName="account"
-            itemName={dataMod.name}
+            itemName={dataMod ? dataMod.name : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -186,7 +138,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Email"
             styleText={styles.textTitle}
             iconName="email"
-            itemName={dataMod.email}
+            itemName={dataMod ? dataMod.email : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -201,7 +153,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="DNI"
             styleText={styles.textTitle}
             iconName="account-lock"
-            itemName={dataMod.dni}
+            itemName={dataMod ? dataMod.dni : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -216,7 +168,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Phone"
             styleText={styles.textTitle}
             iconName="phone"
-            itemName={dataMod.phone}
+            itemName={dataMod ? dataMod.phone : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -232,7 +184,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Colonia"
             styleText={styles.textTitle}
             iconName="map-marker-radius"
-            itemName={dataMod.address}
+            itemName={dataMod ? dataMod.address : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -247,7 +199,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Ciudad"
             styleText={styles.textTitle}
             iconName="map-marker-radius"
-            itemName={dataMod.city}
+            itemName={dataMod ? dataMod.city : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -262,7 +214,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Departamento"
             styleText={styles.textTitle}
             iconName="map-marker-radius"
-            itemName={dataMod.province}
+            itemName={dataMod ? dataMod.province : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -277,7 +229,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Pais"
             styleText={styles.textTitle}
             iconName="map-marker-radius"
-            itemName={dataMod.country}
+            itemName={dataMod ? dataMod.country : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -294,7 +246,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Tiempo (horas) que la mascota estará sola (por día)"
             styleText={styles.textTitle}
             iconName="hours-24"
-            itemName={dataMod.timeAlone}
+            itemName={dataMod ? dataMod.timeAlone : null}
             style={styles.text}
             onPress={() =>
               onPressModal({
@@ -323,7 +275,7 @@ function AdoptionRequestDetail({ route, navigation }) {
               titleRow="¿Que mascota tienes?"
               styleText={styles.textTitle}
               iconName="head-question"
-              itemName={dataMod.whatPet}
+              itemName={dataMod ? dataMod.whatPet : null}
               onPress={() =>
                 onPressModal({
                   field: "whatPet",
@@ -338,7 +290,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="¿Porque quieres una mascota?"
             styleText={styles.textTitle}
             iconName="head-question"
-            itemName={dataMod.why}
+            itemName={dataMod ? dataMod.why : null}
             onPress={() =>
               onPressModal({
                 field: "why",
@@ -352,7 +304,7 @@ function AdoptionRequestDetail({ route, navigation }) {
             titleRow="Comentario"
             styleText={styles.textTitle}
             iconName="frequently-asked-questions"
-            itemName={dataMod.comentary}
+            itemName={dataMod ? dataMod.comentary : null}
             onPress={() =>
               onPressModal({
                 field: "comentary",
@@ -362,12 +314,47 @@ function AdoptionRequestDetail({ route, navigation }) {
               })
             }
           />
-          <Button
-            title="Cancelar Solicitud"
-            color="primary"
-            colorText="white"
-            onPress={() => Canceled()}
-          />
+          {route.params.approve ? (
+            <View>
+              <Button
+                title="Aprobar"
+                color="secondary"
+                colorText="white"
+                onPress={() =>
+                  domain.Approved(
+                    dataMod,
+                    setDataMod,
+                    navigation,
+                    onRefresh,
+                    updateApi
+                  )
+                }
+              />
+              <Button
+                title="Rechazar"
+                color="primary"
+                colorText="white"
+                onPress={() =>
+                  domain.Rejected(
+                    dataMod,
+                    setDataMod,
+                    navigation,
+                    onRefresh,
+                    updateApi
+                  )
+                }
+              />
+            </View>
+          ) : (
+            <Button
+              title="Cancelar Solicitud"
+              color="primary"
+              colorText="white"
+              onPress={() =>
+                domain.Canceled(dataMod, setDataMod, updateApi, navigation)
+              }
+            />
+          )}
         </ScrollView>
       </Screen>
       {field != undefined ? (

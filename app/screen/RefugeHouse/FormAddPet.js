@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import * as Yup from "yup";
 import FormImagePicker from "../../components/FormImagePicker";
@@ -17,6 +17,7 @@ import RadioGroup from "react-native-radio-buttons-group";
 import { RadioButton, Text } from "react-native-paper";
 import petService from "../../service/Pets";
 import UploadScreen from "../UploadScreen";
+import server from "../../service/server";
 
 import defaultStyles from "../../config/styles";
 
@@ -33,12 +34,12 @@ const validationSchema = Yup.object().shape({
 });
 
 function FormAddPet(props) {
+  const { navigation } = props;
   const { params } = props.route;
-  const {
-    navigation: { goBack },
-  } = props;
-  const [petSize, setPetSize] = useState();
-  const [value, setValue] = useState("male");
+  const [petSize, setPetSize] = useState(
+    params.edit ? params.pet.category : null
+  );
+  const [value, setValue] = useState(params.edit ? params.pet.sex : "male");
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
 
@@ -59,7 +60,13 @@ function FormAddPet(props) {
 
     resetForm();
     params.onGoBack();
-    goBack();
+    navigation.goBack();
+  };
+  const images = () => {
+    const photo = params.pet.petPhotos.map(
+      (data) => server.URI + "/ImagePet/" + data.image
+    );
+    return photo;
   };
 
   return (
@@ -71,26 +78,30 @@ function FormAddPet(props) {
       />
       <Form
         initialValues={{
-          category: "",
-          clinicHistory: "",
-          color: "",
-          description: "",
+          category: params.edit ? params.pet.category : "",
+          clinicHistory: params.edit ? params.pet.clinicHistory : "",
+          color: params.edit ? params.pet.color : "",
+          description: params.edit ? params.pet.description : "",
           file: [],
-          height: "",
-          profileHouseId: 0,
-          isAdoptable: true,
-          lifeHistory: "",
-          name: "",
-          old: "",
-          sex: "",
-          weight: "",
+          height: params.edit ? params.pet.height : "",
+          profileHouseId: params.edit ? params.pet.profileHouseId : 0,
+          isAdoptable: params.edit ? params.pet.isAdoptable : true,
+          lifeHistory: params.edit ? params.pet.lifeHistory : "",
+          name: params.edit ? params.pet.name : "",
+          old: params.edit ? params.pet.old.toString() : "",
+          sex: params.edit ? params.pet.sex : "",
+          weight: params.edit ? params.pet.weight : "",
         }}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
         <View style={styles.images}>
           <TitleSeparator title="Cargar imagenes" />
-          <FormImagePicker name="file" />
+          <FormImagePicker
+            name="file"
+            images={images()}
+            navigation={navigation}
+          />
         </View>
         <TitleSeparator title="Información General" />
         <ScrollView>
@@ -104,7 +115,7 @@ function FormAddPet(props) {
             maxLength={255}
             name="description"
             placeholder="Descripción"
-            label="Descricción"
+            label="Descripción"
           />
           <View style={styles.picker}>
             <Picker
@@ -169,7 +180,11 @@ function FormAddPet(props) {
           </View>
           <View style={styles.sex}>
             <AppText style={styles.text}>Disponible para adopción</AppText>
-            <SwitchForm style={styles.switch} name="isAdoptable" />
+            <SwitchForm
+              style={styles.switch}
+              name="isAdoptable"
+              isEnabled={params.edit ? params.pet.isAdoptable : true}
+            />
           </View>
           <FormField
             maxLength={255}

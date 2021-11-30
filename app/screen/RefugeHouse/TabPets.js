@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   FlatList,
@@ -11,33 +11,44 @@ import ContentCardPet from "../../components/Card/ContentCardPet";
 import ActionButton from "../../components/ActionButton";
 import Icon from "../../components/Icon";
 import routes from "../../Navigation/routes";
+import houseApi from "../../service/ListingHouse";
+import useApi from "../../hooks/useApi";
 
 import colors from "../../config/colors";
 
 function TabPets(props) {
   const { data, navigation } = props;
+  const [infoData, setInfoData] = useState(data);
+  const [dataHouse, setDataHouse] = useState({
+    name: data.name,
+    city: data.city,
+    address: data.address,
+  });
 
-  const onRefresh = () => {
-    //TODO: Hacer consulta y update
-    console.log("Update State");
+  const onRefresh = async () => {
+    const res = await houseApi.getProfileHouseById(infoData.profileHouseId);
+    if (res.ok) {
+      setInfoData(res.data);
+    }
   };
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={data.pets}
+        data={infoData.pets}
         keyExtractor={(pet) => pet.petId.toString()}
         renderItem={({ item }) => (
           <Card>
             <ContentCardPet
               editable={true}
-              photoHouse={data.image}
-              nameHouse={data.name}
+              photoHouse={infoData.image}
+              nameHouse={infoData.name}
               petName={item.name}
               photos={item.petPhotos}
               description={item.description}
               pet={item}
               navigation={navigation}
+              profileHouse={dataHouse}
             />
           </Card>
         )}
@@ -48,7 +59,7 @@ function TabPets(props) {
         backgroundColor={colors.white}
         onPress={() =>
           navigation.navigate(routes.FORM_ADD_PET, {
-            profileHouseId: data.profileHouseId,
+            profileHouseId: infoData.profileHouseId,
             onGoBack: onRefresh,
           })
         }

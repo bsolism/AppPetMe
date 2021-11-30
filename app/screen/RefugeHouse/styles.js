@@ -14,24 +14,25 @@ const styles = StyleSheet.create({
     borderColor: "black",
   },
   tab: {
-    backgroundColor: "#808080",
+    backgroundColor: colors.light_blue,
   },
   tabButton: {
     width: "100%",
     flexDirection: "row",
-    justifyContent: "center",
+  },
+  tabMenu: {
+    width: "33%",
+    backgroundColor: colors.blue,
   },
   tabOnPress: {
     backgroundColor: colors.white,
     paddingVertical: 5,
     fontSize: 12,
-    width: "50%",
   },
   tabOutPress: {
     backgroundColor: colors.light_grey,
     paddingVertical: 5,
     fontSize: 12,
-    width: "50%",
   },
   textTab: {
     textAlign: "center",

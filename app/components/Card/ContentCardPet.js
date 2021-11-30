@@ -20,6 +20,7 @@ function ContentCardPet(props) {
     description,
     pet,
     navigation,
+    profileHouse,
   } = props;
 
   return (
@@ -41,8 +42,8 @@ function ContentCardPet(props) {
         <View style={styles.detailHeader}>
           <AppText style={styles.title}>{nameHouse}</AppText>
           <AppText style={styles.date}>
-                Fecha: {Moment(dateCreated).format("DD/MMM/yyyy")}
-              </AppText>
+            Fecha: {Moment(dateCreated).format("DD/MMM/yyyy")}
+          </AppText>
         </View>
       </View>
       <View>
@@ -57,7 +58,16 @@ function ContentCardPet(props) {
         <Button
           title="Información"
           style={styles.button}
-          onPress={() => navigation.navigate(routes.PET_DETAILS, pet)}
+          onPress={() =>
+            navigation.navigate(
+              !editable ? routes.PET_DETAILS : routes.FORM_ADD_PET,
+              {
+                edit: editable,
+                pet: pet,
+                house: profileHouse,
+              }
+            )
+          }
           color="white"
           colorText="grey"
         />

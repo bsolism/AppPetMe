@@ -9,7 +9,7 @@ import Moment from "moment";
 import colors from "../../config/colors";
 
 function ListingRequest(props) {
-  const { item, renderRightActions, navigation } = props;
+  const { item, renderRightActions, navigation, approve, onRefresh } = props;
   const [image, setImage] = useState();
 
   useEffect(() => {
@@ -27,7 +27,11 @@ function ListingRequest(props) {
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight
           onPress={() =>
-            navigation.navigate(routes.ADOPTION_REQUEST_DETAIL, item)
+            navigation.navigate(routes.ADOPTION_REQUEST_DETAIL, {
+              item: item,
+              approve: approve,
+              onRefresh: onRefresh,
+            })
           }
         >
           <View style={styles.headerContainer}>

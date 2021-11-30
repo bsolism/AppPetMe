@@ -10,6 +10,7 @@ import ActionButton from "../../components/ActionButton";
 
 import styles from "./styles";
 import colors from "../../config/colors";
+import TabRequest from "./TabRequest";
 
 function HouseProfile(props) {
   const { params } = props.route;
@@ -55,22 +56,37 @@ function HouseProfile(props) {
         />
       </View>
       <View style={styles.tabButton}>
-        <TouchableHighlight
-          style={tab == 1 ? styles.tabOnPress : styles.tabOutPress}
-          onPress={() => press(1)}
-        >
-          <Text style={styles.textTab}>Mascotas</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={tab == 2 ? styles.tabOnPress : styles.tabOutPress}
-          onPress={() => press(2)}
-        >
-          <Text style={styles.textTab}>Perfil</Text>
-        </TouchableHighlight>
+        <View style={styles.tabMenu}>
+          <TouchableHighlight
+            style={tab == 1 ? styles.tabOnPress : styles.tabOutPress}
+            onPress={() => press(1)}
+          >
+            <Text style={styles.textTab}>Mascotas</Text>
+          </TouchableHighlight>
+        </View>
+        <View style={styles.tabMenu}>
+          <TouchableHighlight
+            style={tab == 2 ? styles.tabOnPress : styles.tabOutPress}
+            onPress={() => press(2)}
+          >
+            <Text style={styles.textTab}>Perfil</Text>
+          </TouchableHighlight>
+        </View>
+        <View style={styles.tabMenu}>
+          <TouchableHighlight
+            style={tab == 3 ? styles.tabOnPress : styles.tabOutPress}
+            onPress={() => press(3)}
+          >
+            <Text style={styles.textTab}>Solicitudes</Text>
+          </TouchableHighlight>
+        </View>
       </View>
 
       {tab == 1 ? <TabPets data={data} navigation={navigation} /> : null}
       {tab == 2 ? <TabProfile data={data} /> : null}
+      {tab == 3 ? (
+        <TabRequest data={data.profileHouseId} navigation={navigation} />
+      ) : null}
     </View>
   );
 }
