@@ -21,6 +21,7 @@ function ContentCardPet(props) {
     pet,
     navigation,
     profileHouse,
+    onRefresh,
   } = props;
 
   return (
@@ -65,6 +66,7 @@ function ContentCardPet(props) {
                 edit: editable,
                 pet: pet,
                 house: profileHouse,
+                onGoBack: onRefresh,
               }
             )
           }

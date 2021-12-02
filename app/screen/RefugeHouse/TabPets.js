@@ -49,6 +49,7 @@ function TabPets(props) {
               pet={item}
               navigation={navigation}
               profileHouse={dataHouse}
+              onRefresh={onRefresh}
             />
           </Card>
         )}

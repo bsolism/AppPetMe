@@ -42,20 +42,34 @@ function FormAddPet(props) {
   const [value, setValue] = useState(params.edit ? params.pet.sex : "male");
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [count, setCount] = useState(1);
 
   const onSubmit = async (data, { resetForm }) => {
     setProgress(0);
     setUploadVisible(true);
     data.category = petSize;
     data.sex = value;
-    data.profileHouseId = params.profileHouseId;
-    const result = await petService.addPet({ ...data }, (progress) =>
-      setProgress(progress)
-    );
+    data.profileHouseId = params.edit
+      ? params.pet.profileHouseId
+      : params.profileHouseId;
 
-    if (!result.ok) {
-      setUploadVisible(false);
-      return alert("Could not save the listing");
+    if (params.edit) {
+      data.petId = params.pet.petId;
+      const result = await petService.updatePet({ ...data }, (progress) =>
+        setProgress(progress)
+      );
+      if (!result.ok) {
+        setUploadVisible(false);
+        return alert("Could not save the listing");
+      }
+    } else {
+      const result = await petService.addPet({ ...data }, (progress) =>
+        setProgress(progress)
+      );
+      if (!result.ok) {
+        setUploadVisible(false);
+        return alert("Could not save the listing");
+      }
     }
 
     resetForm();
@@ -63,10 +77,12 @@ function FormAddPet(props) {
     navigation.goBack();
   };
   const images = () => {
-    const photo = params.pet.petPhotos.map(
-      (data) => server.URI + "/ImagePet/" + data.image
-    );
-    return photo;
+    if (params.edit) {
+      const photo = params.pet.petPhotos.map(
+        (data) => server.URI + "/ImagePet/" + data.image
+      );
+      return photo;
+    }
   };
 
   return (
@@ -78,6 +94,7 @@ function FormAddPet(props) {
       />
       <Form
         initialValues={{
+          petId: params.edit ? params.pet.petId : 0,
           category: params.edit ? params.pet.category : "",
           clinicHistory: params.edit ? params.pet.clinicHistory : "",
           color: params.edit ? params.pet.color : "",
@@ -101,6 +118,8 @@ function FormAddPet(props) {
             name="file"
             images={images()}
             navigation={navigation}
+            count={count}
+            setCount={setCount}
           />
         </View>
         <TitleSeparator title="Información General" />

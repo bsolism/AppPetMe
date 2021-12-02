@@ -3,11 +3,18 @@ import { useFormikContext } from "formik";
 
 import ImageInputList from "./ImageInputList";
 
-function FormImagePicker({ name, images, navigation }) {
+function FormImagePicker({ name, images, navigation, count, setCount }) {
   const { errors, setFieldValue, touched, values } = useFormikContext();
   const imageUris = values[name];
 
-  images.map((val) => imageUris.push(val));
+  useEffect(() => {
+    if (count > 0) {
+      if (images != undefined) {
+        images.map((val) => imageUris.push(val));
+      }
+    }
+    setCount(0);
+  }, [count]);
 
   const handleAdd = (uri) => {
     setFieldValue(name, [...imageUris, uri]);

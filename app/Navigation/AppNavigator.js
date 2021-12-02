@@ -90,7 +90,7 @@ const AppNavigator = () => {
         component={FormAddPet}
         options={{
           headerShown: true,
-          title: "Add Pet",
+          title: "Pet",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />
