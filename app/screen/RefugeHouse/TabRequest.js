@@ -20,7 +20,6 @@ function TabRequest(props) {
 
   return (
     <View>
-      <Text>Desde Solicitudes</Text>
       <FlatList
         data={dataInfo}
         keyExtractor={(res) => res.requestAdoptionId.toString()}

@@ -7,7 +7,7 @@ const getProfileHouseById = (id) => client.get(endPoint + id);
 const getHouseByUserId = (id) => client.get(endPoint + "user/" + id);
 const deletedHouse = (id) => client.delete(endPoint + id);
 
-const addProfileHouse = (dataInfo, onUploadProgress) => {
+const addProfileHouse = (dataInfo, noUploadProgress) => {
   const data = new FormData();
   data.append("name", dataInfo.name);
   data.append("city", dataInfo.city);
@@ -51,6 +51,22 @@ export const updateProfileHouse = (dataForm, field) => {
   return client.put(endPoint + dataForm.profileHouseId, data);
 };
 
+const updateHouse = (infoData) => {
+  const data = new FormData();
+  data.append("name", infoData.name);
+  data.append("city", infoData.city);
+  data.append("address", infoData.address);
+  data.append("phone", infoData.phone);
+  data.append("email", infoData.email);
+  data.append("userId", infoData.adminId);
+  data.append("accountBank", infoData.accountBank);
+  data.append("bankName", infoData.bankName);
+  data.append("rtn", infoData.rtn);
+  data.append("typeAccount", infoData.typeAccount);
+  data.append("profileId", infoData.profileHouseId);
+  return client.put(endPoint + infoData.profileHouseId, data);
+};
+
 export default {
   getProfileHouse,
   getHouseByUserId,
@@ -58,4 +74,5 @@ export default {
   addProfileHouse,
   updateProfileHouse,
   deletedHouse,
+  updateHouse,
 };

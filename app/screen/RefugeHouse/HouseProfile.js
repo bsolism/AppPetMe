@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, TouchableHighlight, Text, TextInput } from "react-native";
+import {
+  View,
+  TouchableHighlight,
+  TouchableOpacity,
+  Text,
+  TextInput,
+} from "react-native";
 import ImagePicker from "../../components/ImagePicker";
 import server from "../../service/server";
 import useApi from "../../hooks/useApi";
@@ -11,6 +17,7 @@ import ActionButton from "../../components/ActionButton";
 import styles from "./styles";
 import colors from "../../config/colors";
 import TabRequest from "./TabRequest";
+import Screen from "../../components/Screen";
 
 function HouseProfile(props) {
   const { params } = props.route;
@@ -42,12 +49,16 @@ function HouseProfile(props) {
     }
     setImageChange(false);
   };
+  const getData = async (houseId) => {
+    const getHouse = await houseApi.getProfileHouseById(houseId);
+    if (getHouse.ok) setData(getHouse.data);
+  };
   const press = (num) => {
     setTab(num);
   };
 
   return (
-    <View>
+    <Screen>
       <View style={styles.containerImage}>
         <ImagePicker
           imageUri={imageUri}
@@ -83,11 +94,11 @@ function HouseProfile(props) {
       </View>
 
       {tab == 1 ? <TabPets data={data} navigation={navigation} /> : null}
-      {tab == 2 ? <TabProfile data={data} /> : null}
+      {tab == 2 ? <TabProfile data={data} getData={getData} /> : null}
       {tab == 3 ? (
         <TabRequest data={data.profileHouseId} navigation={navigation} />
       ) : null}
-    </View>
+    </Screen>
   );
 }
 
