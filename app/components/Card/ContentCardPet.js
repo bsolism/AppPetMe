@@ -76,10 +76,11 @@ function ContentCardPet(props) {
         {!editable ? (
           <>
             <Button
-              title="Apadrinar Refugio"
+              title="Apadrinar"
               style={styles.button}
               color="white"
               colorText="grey"
+              onPress={() => navigation.navigate(routes.PAYMENT, pet)}
             />
             <Button
               title="Adoptar"

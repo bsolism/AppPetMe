@@ -11,6 +11,8 @@ import RegisterHouse from "../screen/RegisterHouse";
 //import RefugeHouse from "../screen/RefugeHouse";
 import HouseProfile from "../screen/RefugeHouse";
 import FormAddPet from "../screen/RefugeHouse/FormAddPet";
+import FormCreditCard from "../components/FormCreditCard";
+import Payment from "../screen/Payment";
 
 const Stack = createStackNavigator();
 
@@ -91,6 +93,15 @@ const AppNavigator = () => {
         options={{
           headerShown: true,
           title: "Pet",
+          headerStyle: { backgroundColor: colors.blue },
+        }}
+      />
+      <Stack.Screen
+        name="payment"
+        component={Payment}
+        options={{
+          headerShown: true,
+          title: "Donar",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />

@@ -12,6 +12,7 @@ import TabRefuge from "./app/screen/RefugeHouse/TabRefuge";
 import Demo from "./app/screen/Demo/Demo";
 import HouseProfile from "./app/screen/RefugeHouse/HouseProfile";
 import ActionButton from "./app/components/ActionButton";
+import PayPal from "rn-expo-paypal-integration";
 
 import colors from "./app/config/colors";
 
@@ -41,6 +42,7 @@ export default function App() {
         backgroundColor={colors.white}
         onPress={() => console.log("Press Add")}
       />*/}
+
       <AuthContext.Provider value={{ user, setUser }}>
         <NavigationContainer ref={navigationRef}>
           {/*<Profile />*/}
