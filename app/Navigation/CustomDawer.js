@@ -94,7 +94,7 @@ function CustomDrawer(props) {
       </DrawerContentScrollView>
 
       <TouchableOpacity style={styles.Touchable} onPress={() => logOut()}>
-        <AppText>Log Out</AppText>
+        <AppText>Cerrar Sesion</AppText>
       </TouchableOpacity>
     </View>
   );

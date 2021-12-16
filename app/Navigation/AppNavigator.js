@@ -13,6 +13,7 @@ import HouseProfile from "../screen/RefugeHouse";
 import FormAddPet from "../screen/RefugeHouse/FormAddPet";
 import FormCreditCard from "../components/FormCreditCard";
 import Payment from "../screen/Payment";
+import Voucher from "../screen/Voucher";
 
 const Stack = createStackNavigator();
 
@@ -102,6 +103,15 @@ const AppNavigator = () => {
         options={{
           headerShown: true,
           title: "Donar",
+          headerStyle: { backgroundColor: colors.blue },
+        }}
+      />
+      <Stack.Screen
+        name="Voucher"
+        component={Voucher}
+        options={{
+          headerShown: false,
+          title: "Voucher",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />

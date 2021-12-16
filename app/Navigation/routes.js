@@ -16,4 +16,5 @@ export default Object.freeze({
   REFUGE_HOUSE: "RefugeHouse",
   REGISTER: "Register",
   REGISTER_HOUSE: "RegisterHouse",
+  VOUCHER: "Voucher",
 });

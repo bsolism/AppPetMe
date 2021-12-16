@@ -13,6 +13,7 @@ import Demo from "./app/screen/Demo/Demo";
 import HouseProfile from "./app/screen/RefugeHouse/HouseProfile";
 import ActionButton from "./app/components/ActionButton";
 import PayPal from "rn-expo-paypal-integration";
+import Voucher from "./app/screen/Voucher";
 
 import colors from "./app/config/colors";
 
@@ -36,16 +37,8 @@ export default function App() {
 
   return (
     <>
-      {/*<ActionButton
-        size={50}
-        color={colors.primary}
-        backgroundColor={colors.white}
-        onPress={() => console.log("Press Add")}
-      />*/}
-
       <AuthContext.Provider value={{ user, setUser }}>
         <NavigationContainer ref={navigationRef}>
-          {/*<Profile />*/}
           {user ? <AppNavigator /> : <AuthNavigator />}
         </NavigationContainer>
       </AuthContext.Provider>

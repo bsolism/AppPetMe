@@ -6,6 +6,7 @@ import Switch from "../../components/Switch";
 import donationApi from "../../service/Donation";
 import UploadScreen from "../UploadScreen";
 import { Form, SubmitButton } from "../../components/FormComponent";
+import routes from "../../Navigation/routes";
 
 import styles from "./styles";
 
@@ -23,8 +24,8 @@ const initialValue = {
   valid: false,
 };
 
-function Payment(props) {
-  const { params } = props.route;
+function Payment({ route, navigation }) {
+  const { params } = route;
   const [data, setData] = useState(initialValue);
   const [dataCard, setDataCard] = useState(initialValue);
   const [progress, setProgress] = useState(0);
@@ -61,6 +62,7 @@ function Payment(props) {
         setUploadVisible(false);
         return alert("Donation Failed");
       }
+      navigation.navigate(routes.VOUCHER, result.data);
     } else {
       alert("No. Tarjeta no valido");
     }
