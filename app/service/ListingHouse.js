@@ -7,7 +7,7 @@ const getProfileHouseById = (id) => client.get(endPoint + id);
 const getHouseByUserId = (id) => client.get(endPoint + "user/" + id);
 const deletedHouse = (id) => client.delete(endPoint + id);
 
-const addProfileHouse = (dataInfo, noUploadProgress) => {
+const addProfileHouse = (dataInfo, onUploadProgress) => {
   const data = new FormData();
   data.append("name", dataInfo.name);
   data.append("city", dataInfo.city);

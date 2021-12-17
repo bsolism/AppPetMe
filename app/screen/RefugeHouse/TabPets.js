@@ -10,7 +10,7 @@ import Card from "../../components/Card";
 import ContentCardPet from "../../components/Card/ContentCardPet";
 import ActionButton from "../../components/ActionButton";
 import Icon from "../../components/Icon";
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 import houseApi from "../../service/ListingHouse";
 import useApi from "../../hooks/useApi";
 

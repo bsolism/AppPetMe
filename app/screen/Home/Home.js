@@ -6,12 +6,14 @@ import useApi from "../../hooks/useApi";
 import petApi from "../../service/Pets";
 import AppText from "../../components/AppTex";
 import ContentCardPet from "../../components/Card/ContentCardPet";
+import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import styles from "./styles";
 
 function Home({ route, navigation }) {
   const [category, setCategory] = useState("Little");
   const getPetApi = useApi(petApi.getPets);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     tabPress(navigation);
@@ -58,6 +60,10 @@ function Home({ route, navigation }) {
               </Card>
             </>
           )}
+          refreshing={refreshing}
+          onRefresh={() => {
+            getPetApi.request();
+          }}
         />
       </View>
     </Screen>

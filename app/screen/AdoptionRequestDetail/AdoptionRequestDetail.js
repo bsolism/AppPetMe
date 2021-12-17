@@ -21,6 +21,7 @@ function AdoptionRequestDetail({ route, navigation }) {
   const [field, setField] = useState();
   const data = route.params.item;
   const onRefresh = route.params.onRefresh;
+  const approve = route.params.approve;
   const [dataMod, setDataMod] = useState();
   const [isEnabled, setIsEnabled] = useState(data.hasPets);
   const updateApi = useApi(requestService.update);
@@ -70,7 +71,7 @@ function AdoptionRequestDetail({ route, navigation }) {
               modal={false}
             />
             <RowWithModal
-              titleRow="Años"
+              titleRow="Edad Meses"
               styleText={styles.textTitle}
               iconName="baby-carriage"
               itemName={dataMod ? dataMod.pet.old : null}
@@ -326,7 +327,8 @@ function AdoptionRequestDetail({ route, navigation }) {
                     setDataMod,
                     navigation,
                     onRefresh,
-                    updateApi
+                    updateApi,
+                    approve
                   )
                 }
               />
@@ -340,7 +342,8 @@ function AdoptionRequestDetail({ route, navigation }) {
                     setDataMod,
                     navigation,
                     onRefresh,
-                    updateApi
+                    updateApi,
+                    approve
                   )
                 }
               />

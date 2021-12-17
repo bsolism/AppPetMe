@@ -8,10 +8,8 @@ import AdoptionRequestDetail from "../screen/AdoptionRequestDetail";
 import ListingHouseRefuge from "../screen/ListingHouseRefuge";
 import RefugeHouseDetail from "../screen/RefugeHouseDetail";
 import RegisterHouse from "../screen/RegisterHouse";
-//import RefugeHouse from "../screen/RefugeHouse";
 import HouseProfile from "../screen/RefugeHouse";
 import FormAddPet from "../screen/RefugeHouse/FormAddPet";
-import FormCreditCard from "../components/FormCreditCard";
 import Payment from "../screen/Payment";
 import Voucher from "../screen/Voucher";
 
@@ -29,7 +27,7 @@ const AppNavigator = () => {
         name="PetDetails"
         component={PetDetails}
         options={({ route }) => ({
-          title: route.params.name,
+          title: "Detalle",
           headerShown: true,
           headerStyle: { backgroundColor: colors.blue },
         })}
@@ -39,7 +37,7 @@ const AppNavigator = () => {
         component={AdoptionRequest}
         options={{
           headerShown: true,
-          title: "Adoption Form",
+          title: "Adopción",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />
@@ -48,7 +46,7 @@ const AppNavigator = () => {
         component={ListingHouseRefuge}
         options={{
           headerShown: true,
-          title: "Refuge House",
+          title: "Refugios",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />
@@ -57,7 +55,7 @@ const AppNavigator = () => {
         component={RefugeHouseDetail}
         options={{
           headerShown: true,
-          title: "Refuge House",
+          title: "Refugio",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />
@@ -66,7 +64,7 @@ const AppNavigator = () => {
         component={HouseProfile}
         options={{
           headerShown: true,
-          title: "Refuge House",
+          title: "Perfil Refugio",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />
@@ -75,7 +73,7 @@ const AppNavigator = () => {
         component={RegisterHouse}
         options={{
           headerShown: true,
-          title: "Register House",
+          title: "Registrar Refugio",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />
@@ -84,7 +82,7 @@ const AppNavigator = () => {
         component={AdoptionRequestDetail}
         options={{
           headerShown: true,
-          title: "Request Detail",
+          title: "Solicitud Adopción",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />
@@ -93,7 +91,7 @@ const AppNavigator = () => {
         component={FormAddPet}
         options={{
           headerShown: true,
-          title: "Pet",
+          title: "Mascota",
           headerStyle: { backgroundColor: colors.blue },
         }}
       />

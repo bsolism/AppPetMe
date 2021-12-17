@@ -3,7 +3,7 @@ import { View, Image, TouchableHighlight, StyleSheet } from "react-native";
 import server from "../../service/server";
 import AppText from "../AppTex";
 import { Swipeable } from "react-native-gesture-handler";
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 import Moment from "moment";
 
 import colors from "../../config/colors";
@@ -48,7 +48,6 @@ function ListingRequest(props) {
               <AppText style={styles.date}>
                 Fecha: {Moment(item.date).format("DD/MMM/yyyy")}
               </AppText>
-              <AppText style={styles.subTitle}>Casa de refugio</AppText>
             </View>
             <View style={styles.option}>
               {item.isActive ? (

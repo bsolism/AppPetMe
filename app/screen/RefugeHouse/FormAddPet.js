@@ -123,7 +123,7 @@ function FormAddPet(props) {
           />
         </View>
         <TitleSeparator title="Información General" />
-        <ScrollView>
+        <ScrollView style={styles.body}>
           <FormField
             maxLength={255}
             name="name"
@@ -224,6 +224,9 @@ function FormAddPet(props) {
   );
 }
 const styles = StyleSheet.create({
+  body: {
+    paddingHorizontal: 15,
+  },
   container: {
     flexDirection: "row",
   },

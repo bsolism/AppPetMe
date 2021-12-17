@@ -1,6 +1,7 @@
 const dataHook = (data) => {
   const dataMod = {
     requestAdoptionId: data.requestAdoptionId,
+    refugeId: data.profileHouseId,
     name: data.name,
     email: data.email,
     dni: data.dni,
@@ -40,13 +41,14 @@ const Approved = async (
     hasPets: dataMod.hasPets,
     isApproved: true,
     isActive: dataMod.isActive,
-    isRejected: dataMod.isRejected,
+    isRejected: false,
   };
   setDataMod({ ...dataMod, isApproved: true });
   const res = await updateApi.request(dataUpdate);
   if (res.ok) {
     alert("Solicitud de adopción ha sido Aprobada");
-    onRefresh(dataMod.requestAdoptionId);
+    console.log(dataMod.refugeId);
+    onRefresh(dataMod.refugeId);
     navigation.goBack();
   }
 };
@@ -61,7 +63,7 @@ const Rejected = async (
   const dataUpdate = {
     requestAdoptionId: dataMod.requestAdoptionId,
     hasPets: dataMod.hasPets,
-    isApproved: dataMod.isApproved,
+    isApproved: false,
     isActive: dataMod.isActive,
     isRejected: true,
   };
@@ -69,7 +71,7 @@ const Rejected = async (
   const res = await updateApi.request(dataUpdate);
   if (res.ok) {
     alert("Solicitud de adopción ha sido Rechazada");
-    onRefresh(dataMod.requestAdoptionId);
+    onRefresh(dataMod.refugeId);
     navigation.goBack();
   }
 };

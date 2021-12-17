@@ -41,7 +41,7 @@
     "react-native-action-button": "^2.8.5",
     "react-native-credit-card-input": "^0.4.1",
     "react-native-elements": "^3.4.2",
-    "react-native-gesture-handler": "^1.10.3",
+    "react-native-gesture-handler": "~1.10.2",
     "react-native-image-crop-picker": "0.20.0",
     "react-native-paper": "^4.10.1",
     "react-native-progress": "^5.0.0",
@@ -55,7 +55,8 @@
     "react-native-web": "~0.13.12",
     "react-number-format": "^4.8.0",
     "rn-expo-paypal-integration": "^1.2.0",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "undefined": "react-native-gesture-handler/Swipeable"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6"

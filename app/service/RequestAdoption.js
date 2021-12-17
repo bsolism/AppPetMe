@@ -2,7 +2,7 @@ import client from "./Client";
 
 const endPoint = "/requestadoption/";
 
-const getRequestById = (id) => client.get(endPoint + "house/" + id);
+const getRequestByHouseId = (id) => client.get(endPoint + "house/" + id);
 const getRequestByUserId = (id) => client.get(endPoint + "user/" + id);
 
 const addRequest = (data, onUploadProgress) => {
@@ -13,4 +13,4 @@ const addRequest = (data, onUploadProgress) => {
 };
 const update = (info) => client.put(endPoint + info.requestAdoptionId, info);
 
-export default { addRequest, getRequestById, getRequestByUserId, update };
+export default { addRequest, getRequestByHouseId, getRequestByUserId, update };

@@ -13,19 +13,22 @@ import {
 } from "../../components/FormComponent";
 import * as Yup from "yup";
 import UploadScreen from "../UploadScreen";
+import routes from "../../navigation/routes";
 
 import styles from "./styles";
-import { cleanSingle } from "react-native-image-crop-picker";
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   phone: Yup.string().required().label("Phone Number"),
   city: Yup.string().required().label("City"),
   address: Yup.string().required().label("Address"),
-  //emailUser: Yup.string().required().email().label("Email"),
+  rtn: Yup.string().required().label("Address"),
+  accountBank: Yup.string().required().label("Address"),
+  typeAccount: Yup.string().required().label("Address"),
+  bankName: Yup.string().required().label("Address"),
 });
 
-function RegisterHouse(props) {
+function RegisterHouse({ navigation }) {
   const userApi = useApi(users.getUser);
   const [progress, setProgress] = useState(0);
   const [uploadVisible, setUploadVisible] = useState(false);
@@ -55,19 +58,18 @@ function RegisterHouse(props) {
     );
     if (!result.ok) {
       setUploadVisible(false);
-      return alert("Could not save the listing");
+      return alert(result.data);
     }
     //setDataUser({ ...dataUser, rol: 2 });
-    dataUser.rol=2
-    
+    dataUser.rol = 2;
 
     const res = await updateApi.request(dataUser, "rol");
-    
 
     auth.logIn(res.data.token);
 
     setImageUri(null);
     resetForm();
+    navigation.navigate(routes.HOME);
   };
 
   return (

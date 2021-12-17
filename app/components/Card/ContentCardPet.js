@@ -7,7 +7,7 @@ import Carousel from "../Carousel";
 import server from "../../service/server";
 
 import styles from "./styles";
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 
 function ContentCardPet(props) {
   const {

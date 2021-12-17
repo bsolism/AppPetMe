@@ -1,21 +1,11 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
-
-import { navigationRef } from "./app/Navigation/rootNavigator";
-import AppNavigator from "./app/Navigation/AppNavigator";
-import AuthNavigator from "./app/Navigation/AuthNavigator";
+import { navigationRef } from "./app/navigation/rootNavigator";
+import AppNavigator from "./app/navigation/AppNavigator";
+import AuthNavigator from "./app/navigation/AuthNavigator";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
-import RefugeHouse from "./app/screen/RefugeHouse";
-import TabRefuge from "./app/screen/RefugeHouse/TabRefuge";
-import Demo from "./app/screen/Demo/Demo";
-import HouseProfile from "./app/screen/RefugeHouse/HouseProfile";
-import ActionButton from "./app/components/ActionButton";
-import PayPal from "rn-expo-paypal-integration";
-import Voucher from "./app/screen/Voucher";
-
-import colors from "./app/config/colors";
 
 export default function App() {
   const [user, setUser] = useState();

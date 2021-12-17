@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableHighlight } from "react-native";
 import server from "../../service/server";
 import AppText from "../AppTex";
 import { Swipeable } from "react-native-gesture-handler";
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 
 import styles from "./styles";
 

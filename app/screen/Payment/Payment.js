@@ -6,7 +6,7 @@ import Switch from "../../components/Switch";
 import donationApi from "../../service/Donation";
 import UploadScreen from "../UploadScreen";
 import { Form, SubmitButton } from "../../components/FormComponent";
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 
 import styles from "./styles";
 
@@ -94,7 +94,7 @@ function Payment({ route, navigation }) {
             <View style={styles.bodyAmount}>
               <Picker
                 style={{
-                  width: 100,
+                  width: 120,
                 }}
                 selectedValue={dataCard.prefix}
                 onValueChange={(itemValue, itemIndex) =>

@@ -3,7 +3,7 @@ import { View, Image, Button, Text } from "react-native";
 import Screen from "../../components/Screen";
 import AppText from "../../components/AppTex";
 import Moment from "moment";
-import routes from "../../Navigation/routes";
+import routes from "../../navigation/routes";
 
 import styles from "./styles";
 
