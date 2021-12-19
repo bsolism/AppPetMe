@@ -32,7 +32,7 @@ function DrawerNavigator(props) {
         component={TabNavigator}
         name="Inicio"
         options={{
-          title: "Perfil",
+          title: "Inicio",
           drawerIcon: ({ focused, size }) => (
             <MaterialCommunityIcons name="home" size={24} color="black" />
           ),
