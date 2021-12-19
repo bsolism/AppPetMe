@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Image, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Linking,
+} from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItem,
@@ -11,6 +17,7 @@ import server from "../service/server";
 import routes from "../navigation/routes";
 import { Drawer } from "react-native-paper";
 import TitleSeparator from "../components/SeparadorTitle";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 function CustomDrawer(props) {
   const { navigation, user, logOut } = props;
@@ -64,7 +71,14 @@ function CustomDrawer(props) {
               }}
             />
             <DrawerItem
-              label="Registrar Casa Refugio"
+              label="Registrar Refugio"
+              icon={() => (
+                <MaterialCommunityIcons
+                  name="location-enter"
+                  size={24}
+                  color="black"
+                />
+              )}
               onPress={() => navigation.navigate(routes.REGISTER_HOUSE)}
             />
           </Drawer.Section>
@@ -86,15 +100,46 @@ function CustomDrawer(props) {
               }}
             />
             <DrawerItem
-              label="House Refuge"
+              label="Refugio"
+              icon={() => (
+                <MaterialCommunityIcons
+                  name="home-heart"
+                  size={24}
+                  color="black"
+                />
+              )}
               onPress={() => navigation.navigate(routes.LISTINGREFUGE)}
             />
           </Drawer.Section>
         ) : null}
+        <Drawer.Section>
+          <TitleSeparator
+            title="Soporte"
+            styleText={{
+              fontSize: 12,
+              color: colors.blue,
+              fontWeight: "bold",
+            }}
+            styleView={{
+              marginTop: 50,
+              backgroundColor: colors.light,
+              marginVertical: 15,
+            }}
+          />
+          <DrawerItem
+            label="Contacto"
+            icon={() => (
+              <MaterialCommunityIcons name="whatsapp" size={24} color="black" />
+            )}
+            onPress={() => Linking.openURL("https://wa.me/+50494532392")}
+          />
+        </Drawer.Section>
       </DrawerContentScrollView>
 
       <TouchableOpacity style={styles.Touchable} onPress={() => logOut()}>
-        <AppText>Cerrar Sesion</AppText>
+        <AppText icon="logout" style={styles.text}>
+          Cerrar Sesion
+        </AppText>
       </TouchableOpacity>
     </View>
   );
@@ -131,6 +176,9 @@ const styles = StyleSheet.create({
     bottom: 50,
     backgroundColor: colors.light_grey,
     padding: 20,
+  },
+  text: {
+    fontSize: 14,
   },
 });
 

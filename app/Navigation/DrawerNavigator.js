@@ -6,6 +6,7 @@ import TabNavigator from "./TabNavigator";
 import ListingsRequest from "../screen/ListingsRequest";
 import colors from "../config/colors";
 import useAuth from "../auth/useAuth";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Drawer = createDrawerNavigator();
 
@@ -27,16 +28,43 @@ function DrawerNavigator(props) {
         <CustomDrawer user={user} logOut={logOut} {...props} />
       )}
     >
-      <Drawer.Screen component={TabNavigator} name="Inicio" />
+      <Drawer.Screen
+        component={TabNavigator}
+        name="Inicio"
+        options={{
+          title: "Perfil",
+          drawerIcon: ({ focused, size }) => (
+            <MaterialCommunityIcons name="home" size={24} color="black" />
+          ),
+        }}
+      />
       <Drawer.Screen
         component={Profile}
         name="Profile"
-        options={{ title: "Perfil" }}
+        options={{
+          title: "Perfil",
+          drawerIcon: ({ focused, size }) => (
+            <MaterialCommunityIcons
+              name="account-circle-outline"
+              size={24}
+              color="black"
+            />
+          ),
+        }}
       />
       <Drawer.Screen
         component={ListingsRequest}
         name="ListingRequest"
-        options={{ title: "Solicitudes de Adopcion" }}
+        options={{
+          title: "Solicitud Adopción",
+          drawerIcon: ({ focused, size }) => (
+            <MaterialCommunityIcons
+              name="frequently-asked-questions"
+              size={24}
+              color="black"
+            />
+          ),
+        }}
       />
     </Drawer.Navigator>
   );
