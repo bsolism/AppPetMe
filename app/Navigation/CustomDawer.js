@@ -135,6 +135,9 @@ function CustomDrawer(props) {
           />
         </Drawer.Section>
       </DrawerContentScrollView>
+      <View>
+        <AppText style={styles.textV}>Version 1.0</AppText>
+      </View>
 
       <TouchableOpacity style={styles.Touchable} onPress={() => logOut()}>
         <AppText icon="logout" style={styles.text}>
@@ -179,6 +182,10 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
+  },
+  textV: {
+    fontSize: 11,
+    color: colors.dark_grey,
   },
 });
 
